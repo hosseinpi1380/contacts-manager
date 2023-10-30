@@ -4,33 +4,37 @@ import { Formik, Form, Field, ErrorMessage, useFormik } from 'formik'
 import TitlePage from '../../components/TitlePage';
 import contactSchema from '../../validation/contactValidation';
 import axios from 'axios';
-import { useState } from 'react';
+import { useContact } from '../../hooks/useContext';
+
 const EditContact = () => {
     const { id } = useParams();
     const navigate = useNavigate();
-    const [contact, setContact] = useState({});
-    const getNumberContact = async () => {
+    const { contact, setContact } = useContact();
+    const getContactWithId = async () => {
         try {
             const { data } = await axios.get(`http://localhost:4000/employees/${id}`)
-            console.log(data)
             return data;
         }
         catch (err) {
             console.log(err.message, err.status)
         }
-    }
+    };
     useEffect(() => {
         const mounting = async () => {
             try {
-                const response = await getNumberContact()
-                setContact(response)
-                console.log(contact)
+                const response = await getContactWithId()
+                console.log(response)
+                setContact(contact)
+                
             } catch (err) {
                 console.log(err.message)
             }
         }
         mounting()
-    }, [])
+    }, []);
+    useEffect(()=>{
+        console.log(contact)
+    },[contact]);
     const putHandler = async (values) => {
         try {
             const response = await axios.put(`http://localhost:4000/employees/${id}`, values)
@@ -44,7 +48,8 @@ const EditContact = () => {
             <TitlePage title={`edit contact number ${id}`} />
             <div className="form" dir='rtl'>
                 <Formik
-                    initialValues={{ name:'', email: '', password: ''}}
+                    initialValues={{ name: contact.name, 
+                    email: contact.email, password: contact.password}}
                     validationSchema={contactSchema}
                     onSubmit={(values) => {
                         console.log(values)
@@ -59,7 +64,7 @@ const EditContact = () => {
                                 type="text" placeholder='نام'
                             />
                             <ErrorMessage
-                                name='name' 
+                                name='name'
                                 render={(msg) => (<div className='bg-red-700 text-center p-1 rounded-md w-full'>{msg}</div>)} />
                         </div>
                         <div>
@@ -69,7 +74,7 @@ const EditContact = () => {
                                 type="text" placeholder='ایمیل'
                             />
                             <ErrorMessage
-                                name='email' 
+                                name='email'
                                 render={(msg) => (<div className='bg-red-700 text-center p-1 rounded-md w-full'>{msg}</div>)} />
                         </div>
                         <div>
@@ -79,12 +84,13 @@ const EditContact = () => {
                                 type="text" placeholder='گذرواژه'
                             />
                             <ErrorMessage
-                                name='password' 
+                                name='password'
                                 render={(msg) => (<div className='bg-red-700 text-center p-1 rounded-md w-full'>{msg}</div>)} />
                         </div>
                         <div className="buttons">
                             <button className='create-user-btn'
                                 type='submit'
+                                onClick={()=>navigate(-1)}
                             >ثبت ویرایش</button>
                             <button className='cancel-create-btn
                         ' onClick={() => navigate('/contacts')}>لغو</button>

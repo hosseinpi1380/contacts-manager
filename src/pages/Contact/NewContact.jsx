@@ -1,27 +1,17 @@
 import axios from 'axios';
-import React, { useState } from 'react'
+import React from 'react'
 import { useNavigate } from 'react-router-dom';
-import { useFormik, Formik, Field,Form,ErrorMessage } from 'formik';
+import { Formik, Field, Form, ErrorMessage } from 'formik';
 import contactSchema from '../../validation/contactValidation';
 import TitlePage from '../../components/TitlePage'
-
+import { ToastContainer, toast } from 'react-toastify';
 const NewContact = () => {
     const navigate = useNavigate();
-    // const formik = useFormik({
-    //     initialValues: {
-    //         name: '', email: '', password: '', dateTime: new Date().toLocaleDateString()
-    //     },
-    //     validationSchema: contactSchema,
-    //     onSubmit: (values, { resetForm }) => {
-    //         console.log('values', values)
-    //         createUser(values)
-    //         resetForm({ values: '' })
-    //     },
-    // });
     const createUser = async (info) => {
         try {
-            let { statusText } = await axios.post('http://localhost:4000/employees', info)
-            console.log('send', statusText)
+            let response = await axios.post('http://localhost:4000/employees', info)
+            console.log(response)
+            toast.success('مخاطب با موفقیت ساخته شد', { icon: '✔' })
         } catch (err) {
             console.log(err.message)
             console.log(err.inner)
@@ -29,13 +19,15 @@ const NewContact = () => {
     }
     return (
         <>
+            <ToastContainer rtl={true} autoClose={500} />
             <div className="new-contact place-items-center min-h-full" dir='rtl'>
                 <Formik
-                    initialValues={{ name: '', email: '', password: '' }}
+                    initialValues={{ name: '', email: '', password: '', dateCreated: new Date().toLocaleString() }}
                     validationSchema={contactSchema}
                     onSubmit={(values) => {
                         console.log(values)
                         createUser(values)
+                        navigate(-1)
                     }}
                 >
                     <Form>
@@ -46,8 +38,8 @@ const NewContact = () => {
                                 id='name'
                                 type="text" placeholder='نام'
                             />
-                            <ErrorMessage 
-                            name='name' render={(msg)=>(<div className='bg-red-700 text-center p-1 rounded-md w-full'>{msg}</div>)}/>
+                            <ErrorMessage
+                                name='name' render={(msg) => (<div className='error-label-message'>{msg}</div>)} />
                         </div>
                         <div>
                             <label>ایمیل</label>
@@ -56,7 +48,7 @@ const NewContact = () => {
                                 type="text" placeholder='ایمیل'
                             />
                             <ErrorMessage
-                            name='email' render={(msg)=>(<div className='bg-red-700 text-center p-1 rounded-md w-full'>{msg}</div>)}/>
+                                name='email' render={(msg) => (<div className='error-label-message'>{msg}</div>)} />
                         </div>
                         <div>
                             <label>گذرواژه</label>
@@ -65,18 +57,19 @@ const NewContact = () => {
                                 type="text" placeholder='گذرواژه'
                             />
                             <ErrorMessage className='bg-red-700 text-center p-1 rounded-md w-full'
-                            name='password' render={(msg)=>(<div className='bg-red-700 text-center p-1 rounded-md w-full'>{msg}</div>)}/>
+                                name='password' render={(msg) => (<div className='error-label-message'>{msg}</div>)} />
                         </div>
                         <div className="buttons">
                             <button className='create-user-btn'
                                 type='submit'
                             >ساخت</button>
-                            <button className='cancel-create-btn
-                        ' onClick={() => navigate('/contacts')}>لغو</button>
+                            <button type='reset' className='bg-green-600 mb-1 p-1 rounded-md text-white'>reset</button>
+                            <button className='cancel-create-btn'
+                                onClick={() => navigate('/contacts')}>لغو</button>
                         </div>
                     </Form>
                 </Formik>
-            </div >
+            </div>
         </>
     )
 }

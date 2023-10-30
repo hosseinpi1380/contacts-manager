@@ -18,6 +18,9 @@
     form>div input {
         @apply my-2 focus-within:outline-none bg-slate-300 shadow-md p-2 rounded-md placeholder:text-gray-700
     }
+    input{
+        @apply focus-within:outline-none
+    }
 }
 
 @layer components {}
@@ -28,7 +31,11 @@
     }
 
     .contacts_btn>* {
-        @apply inline-flex flex-1 w-1/2 mt-2 gap-2 text-right text-white
+        @apply inline-flex flex-1 w-1/2 mt-2 gap-2 text-right
+    }
+    
+    .contacts_btn{
+        @apply flex flex-row gap-1
     }
 
     .contact>* {
@@ -48,10 +55,16 @@
     }
 
     .cancel-create-btn {
-        @apply bg-red-700 p-1 text-white rounded-md;
+        @apply bg-red-700 p-1 text-white rounded-md ;
     }
     .contacts-container{
-        @apply  grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 mt-4 max-sm:w-full;
+        @apply grid gap-4 lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 mt-4 max-sm:w-full;
+    }
+    .create-btn{
+        @apply  bg-gray-800 text-white p-2 rounded-md shadow-md items-end flex;
+    }
+    .error-label-message{
+        @apply bg-red-700 text-center text-white p-1 rounded-md w-full
     }
 
 }

@@ -1,21 +1,18 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import { Outlet, useNavigate } from 'react-router-dom'
 import TitlePage from '../../components/TitlePage';
+import { confirmAlert } from 'react-confirm-alert';
 import _ from 'lodash';
 import axios from 'axios';
-import { confirmAlert } from 'react-confirm-alert';
-import 'react-confirm-alert/src/react-confirm-alert.css';
+import { useContact } from '../../hooks/useContext';
+import { ToastContainer, toast } from 'react-toastify';
 const Contacts = () => {
-    const [contacts, setContacts] = useState();
     const navigate = useNavigate();
-    const [input, setInput] = useState();
-    const [filterContacts, setFilterContacts] = useState();
-
+    const { contacts, setContacts } = useContact();
     useEffect(() => {
         const mountComponent = async () => {
             try {
-                const { data } = await getData();
-                console.log(data)
+                const { data } = await axios.get('http://localhost:4000/employees')
                 setContacts(data)
 
             } catch (err) {
@@ -24,42 +21,6 @@ const Contacts = () => {
         }
         mountComponent()
     }, [])
-    const getAxios = () => {
-        return axios.get('http://localhost:4000/employees')
-    }
-    const getData = async () => {
-        try {
-            const response = await getAxios()
-            return response
-        } catch (err) {
-            console.log(err.message, err.status)
-        }
-    }
-    const confirmDelete = async id => {
-        try {
-            const response = await axios.delete(`http://localhost:4000/employees/${id}`)
-            console.log(response.statusText)
-            const { data } = await getData();
-            setContacts(data)
-
-        } catch (err) {
-            console.log(err.message, err.status)
-        }
-    }
-
-    let words = ''
-    const filterContactsHandler = (e => {
-        words += e.target.value;
-        setInput(prev => e.target.value)
-
-        let firstNames = contacts.filter(p => p.name.toLowerCase().includes(words.toLowerCase()))
-        if (!firstNames.length) {
-            console.log('null')
-        } else {
-            setFilterContacts(firstNames)
-        }
-        console.log(firstNames)
-    })
     const deleteHandler = (id) => {
         confirmAlert({
             customUI: ({ onClose }) => {
@@ -89,32 +50,53 @@ const Contacts = () => {
             }
         });
     }
+    const getData = async () => {
+        try {
+            const response = await axios.get('http://localhost:4000/employees');
+            return response
+        } catch (err) {
+            console.log(err.message, err.status)
+        }
+    }
+    
+    const confirmDelete = async id => {
+        try {
+            const response = await axios.delete(`http://localhost:4000/employees/${id}`)
+            console.log(response.statusText)
+            const { data } = await getData();
+            console.log(data)
+            setContacts(data)
+            toast.error('مخاطب با موفقیت حذف شد!')
+
+        } catch (err) {
+            console.log(err.message, err.status)
+        }
+    }
+
     return (
         <>
+            <ToastContainer rtl={true}/>
             <TitlePage title='contacts' />
             <div className='contacts_btn'>
-                <button className='bg-gray-800 text-white p-2 rounded-md shadow-md items-end flex' onClick={() => {
+                <button className='create-btn' onClick={() => {
                     navigate('/register')
                 }}>
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
                     </svg>
                     ساختن مخاطب جدید</button>
-                <input type="text" className='bg-gray-200 rounded-md p-2 ml-auto focus-within:outline-none
-                text-black'
-                    value={input} placeholder='جستوجوی مخاطبان'
-                    onChange={filterContactsHandler} />
+                <input type="text" placeholder='جستوجو مخاطب' className='bg-blue-600 placeholder:text-white p-2 rounded-md text-white' />
             </div>
             <div className="contacts-container">
                 {contacts &&
                     contacts.map(el =>
                         <div className="contact shadow-md w-full p-2 inline-flex flex-1 max-sm:w-full" dir='rtl'
-                            key={el.id}>
+                            key={el.name}>
                             <div className="info">
                                 اسم {el.name}
                                 <div className="date">
                                     ثبت نام شده در تاریخ:
-                                    <h4>{el.dateTime}</h4>
+                                    <h4>{el.dateCreated}</h4>
                                 </div>
                             </div>
                             <div className="actions items-center flex justify-between">
