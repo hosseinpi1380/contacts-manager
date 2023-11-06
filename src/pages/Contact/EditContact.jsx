@@ -12,7 +12,7 @@ const EditContact = () => {
     const { contact, setContact } = useContact();
     const getContactWithId = async () => {
         try {
-            const { data } = await axios.get(`http://localhost:4000/employees/${id}`)
+            const { data } = await axios.get(`https://server-contacts.onrender.com/contacts/${id}`)
             return data;
         }
         catch (err) {
@@ -37,7 +37,7 @@ const EditContact = () => {
     },[contact]);
     const putHandler = async (values) => {
         try {
-            const response = await axios.put(`http://localhost:4000/employees/${id}`, values)
+            const response = await axios.put(`https://server-contacts.onrender.com/contacts/${id}`, values)
             console.log(response.status, response.data)
         } catch (err) {
             console.log(err.message)

@@ -9,7 +9,7 @@ const NewContact = () => {
     const navigate = useNavigate();
     const createUser = async (info) => {
         try {
-            let response = await axios.post('http://localhost:4000/employees', info)
+            let response = await axios.post('https://server-contacts.onrender.com/contacts', info)
             console.log(response)
             toast.success('مخاطب با موفقیت ساخته شد', { icon: '✔' })
         } catch (err) {

@@ -12,7 +12,7 @@ const Contacts = () => {
     useEffect(() => {
         const mountComponent = async () => {
             try {
-                const { data } = await axios.get('http://localhost:4000/employees')
+                const { data } = await axios.get('https://server-contacts.onrender.com/contacts')
                 setContacts(data)
 
             } catch (err) {
@@ -52,7 +52,7 @@ const Contacts = () => {
     }
     const getData = async () => {
         try {
-            const response = await axios.get('http://localhost:4000/employees');
+            const response = await axios.get('https://server-contacts.onrender.com/contacts');
             return response
         } catch (err) {
             console.log(err.message, err.status)
@@ -61,7 +61,7 @@ const Contacts = () => {
     
     const confirmDelete = async id => {
         try {
-            const response = await axios.delete(`http://localhost:4000/employees/${id}`)
+            const response = await axios.delete(`https://server-contacts.onrender.com/contacts/${id}`)
             console.log(response.statusText)
             const { data } = await getData();
             console.log(data)
