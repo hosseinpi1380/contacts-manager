@@ -1,9 +1,9 @@
 
-import TitlePage from './components/TitlePage';
+import React from "react"
 function App() {
   return (
     <>
-      <TitlePage title='خانه'/>
+     
     </>
   )
 }
