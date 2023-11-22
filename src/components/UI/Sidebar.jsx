@@ -1,28 +1,25 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import Hidden from '@mui/material/Hidden';
-import { Avatar, Grid, Box, Divider } from '@mui/material';
+import { Avatar, Grid } from '@mui/material';
 import TabsC from '../UI/TabsC'
-import { blueGrey, grey } from '@mui/material/colors';
-
+import  Divider  from '@mui/material/Divider';
 const Sidebar = () => {
-
     return (
         <>
             <Hidden smDown>
-                <Grid item lg={2} md={2} sm={4} xs={0} sx={{ height: '100vh', width: '100%', backgroundColor: grey[900],color:'white' }} >
+                <Grid item lg={2} md={2} sm={3} xs={0}
+                sx={{ height: '100vh', width: '100%',color:'white' }}
+                className="bg-gray-900">
                     <Avatar
                         alt="Remy Sharp"
-                        src="/public/bg-1.jpg"
+                        src="/bg-1.jpg"
                         sx={{ width: 140, height: 140, mx: 'auto', mt: '40px' }} variant='rounded'
                     />
-                    <Divider variant='middle' sx={{ color: 'black', mt: '10px' }} color={grey[500]} />
+                    <Divider variant='middle' color='white' sx={{ color: 'black', mt: '10px' }}/>
                     <TabsC />
-                    <Box>
-
-                    </Box>
+                    <Divider variant='middle' sx={{color:'white'}}/>
                 </Grid>
             </Hidden>
-
         </>
     )
 }

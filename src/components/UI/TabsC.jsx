@@ -1,31 +1,89 @@
-import * as React from 'react';
-import Tabs from '@mui/material/Tabs';
-import Tab from '@mui/material/Tab';
-import Home from '@mui/icons-material/Home';
-import Contacts from '@mui/icons-material/Contacts'
-import InfoIcon from '@mui/icons-material/Info';
-import MessageIcon from '@mui/icons-material/Message';
-import {
-  MemoryRouter,
-  Link,
-} from 'react-router-dom';
+import * as React from "react";
 
+import { Tabs, Tab } from "@mui/material";
+import Home from "@mui/icons-material/Home";
+import Contacts from "@mui/icons-material/Contacts";
+import InfoIcon from "@mui/icons-material/Info";
+import MessageIcon from "@mui/icons-material/Message";
+// import {InfoIcon,MessageIcon,Contacts,Home} from '@mui/icons-material'
+import { MemoryRouter, Link } from "react-router-dom";
+import Typography  from "@mui/material/Typography";
 
 function MyTabs() {
-  const [value, setValue] = React.useState('خانه');
-  const currentTab = value ? value : 'Home'
-  const changeHandler = e => {
-    setValue(e.target.textContent)
-  }
+  const [value, setValue] = React.useState(0);
+  const tabProps = (index) => {
+    return {
+      id: `sidebar-tab-${index}`,
+      "aria-controls": `tabpanel-${index}`,
+    };
+  };
+
+  const handleChange = (event, newValue) => {
+    setValue(newValue);
+  };
   return (
-    <Tabs value={currentTab} onChange={changeHandler}
-      variant='scrollable'
-      orientation='vertical'
-      sx={{ flexGrow: '1', display: "flex" }}>
-      <Tab label="خانه" value="خانه" to="/" component={Link} icon={<Home />} iconPosition='start' sx={{ color: 'white', ml: '10px' }} />
-      <Tab label="درباره من" value="درباره من" to="about" component={Link} icon={<InfoIcon />} iconPosition='start' sx={{ color: 'white', ml: '10px' }} />
-      <Tab label="نطرات " value="نظرات" to="about" component={Link} icon={<MessageIcon />} iconPosition='start' sx={{ color: 'white', ml: '10px' }} />
-      <Tab label="ارتباط با من" value="ارتباط با من" to="contacts" component={Link} icon={<Contacts />} iconPosition='start' sx={{ color: 'white', ml: '10px' }} />
+    <Tabs
+      onChange={handleChange}
+      value={value}
+      variant="scrollable"
+      scrollButtons={true}
+      selectionFollowsFocus
+      orientation="vertical"
+      sx={{ flexGrow: "1", display: "flex" }}
+    >
+      <Tab
+        {...tabProps(0)}
+        label={
+          <div className='flex flex-row'>
+            <Home sx={{mx:'5px'}}/>
+            <Typography>خانه</Typography>
+          </div>
+        }
+        to="/"
+        component={Link}
+        iconPosition="start"
+        sx={{ color: "white" }}
+      />
+      <Tab
+        {...tabProps(1)}
+
+        label={
+          <div className='flex flex-row'>
+            <InfoIcon sx={{mx:'5px'}}/>
+            <Typography>درباره من</Typography>
+          </div>
+        }
+        to="about"
+        component={Link}
+        iconPosition="start"
+        sx={{ color: "white"}}
+      />
+      <Tab
+        {...tabProps(2)}
+        label={
+          <div className='flex flex-row'>
+            <MessageIcon sx={{mx:'5px'}}/>
+            <Typography>نظرات</Typography>
+          </div>
+        }
+        to="about"
+        component={Link}
+        iconPosition="start"
+        sx={{ color: "white" }}
+      />
+      <Tab
+        {...tabProps(3)}
+        label={
+          <div className='flex flex-row'>
+            <Contacts sx={{mx:'5px'}}/>
+            <Typography>ارتباط با من</Typography>
+          </div>
+        }
+        to="contacts"
+        component={Link}
+        iconPosition="start"
+        sx={{ color: "white"}}
+      />
     </Tabs>
   );
 }

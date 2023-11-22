@@ -1,12 +1,12 @@
-import React from 'react'
-import CalenderComponent from '../UI/Calender'
+import React from "react";
+import CalenderComponent from "../UI/Calender";
 const Contacts = () => {
   return (
     <>
-    {/* <CalenderComponent/> */}
-    fadfadfa
+      {/* <CalenderComponent/> */}
+      contacts
     </>
-  )
-}
+  );
+};
 
-export default Contacts
+export default Contacts;
