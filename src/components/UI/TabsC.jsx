@@ -6,7 +6,7 @@ import Contacts from "@mui/icons-material/Contacts";
 import InfoIcon from "@mui/icons-material/Info";
 import MessageIcon from "@mui/icons-material/Message";
 // import {InfoIcon,MessageIcon,Contacts,Home} from '@mui/icons-material'
-import { MemoryRouter, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Typography  from "@mui/material/Typography";
 
 function MyTabs() {
@@ -46,7 +46,6 @@ function MyTabs() {
       />
       <Tab
         {...tabProps(1)}
-
         label={
           <div className='flex flex-row'>
             <InfoIcon sx={{mx:'5px'}}/>
