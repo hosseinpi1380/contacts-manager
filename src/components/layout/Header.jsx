@@ -4,7 +4,7 @@ import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
-import DrawerComponent from "./Drawer";
+import DrawerComponent from "../UI/Drawer";
 import Avatar from "@mui/material/Avatar";
 
 import { Hidden } from "@mui/material";
@@ -15,18 +15,11 @@ export default function Header() {
         <Box sx={{ flexGrow: 1 }}>
           <AppBar position="sticky" enableColorOnDark={true}>
             <Toolbar className="bg-blue-950 text-white">
-              <DrawerComponent></DrawerComponent>
-              <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+            <Button variant="contained">Login</Button>
+              <Typography variant="h6" component="div" sx={{ flexGrow: 1,textAlign:'center'}}>
                 welcome
               </Typography>
-              <Avatar
-                src="/public/bg-1.jpg"
-                variant="square"
-                sx={{ ml: "auto" }}
-              >
-                hossein pirasbaghi
-              </Avatar> 
-              <Button variant="contained">Login</Button>
+              <DrawerComponent></DrawerComponent>
             </Toolbar>
           </AppBar>
         </Box>

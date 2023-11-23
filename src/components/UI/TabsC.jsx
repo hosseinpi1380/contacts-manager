@@ -1,11 +1,9 @@
 import * as React from "react";
-
 import { Tabs, Tab } from "@mui/material";
 import Home from "@mui/icons-material/Home";
 import Contacts from "@mui/icons-material/Contacts";
 import InfoIcon from "@mui/icons-material/Info";
 import MessageIcon from "@mui/icons-material/Message";
-// import {InfoIcon,MessageIcon,Contacts,Home} from '@mui/icons-material'
 import { Link } from "react-router-dom";
 import Typography  from "@mui/material/Typography";
 
@@ -17,7 +15,6 @@ function MyTabs() {
       "aria-controls": `tabpanel-${index}`,
     };
   };
-
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
@@ -35,8 +32,8 @@ function MyTabs() {
         {...tabProps(0)}
         label={
           <div className='flex flex-row'>
-            <Home sx={{mx:'5px'}}/>
             <Typography>خانه</Typography>
+            <Home sx={{mx:'5px'}}/>
           </div>
         }
         to="/"
@@ -48,8 +45,8 @@ function MyTabs() {
         {...tabProps(1)}
         label={
           <div className='flex flex-row'>
-            <InfoIcon sx={{mx:'5px'}}/>
             <Typography>درباره من</Typography>
+            <InfoIcon sx={{mx:'5px'}}/>
           </div>
         }
         to="about"
@@ -61,8 +58,8 @@ function MyTabs() {
         {...tabProps(2)}
         label={
           <div className='flex flex-row'>
-            <MessageIcon sx={{mx:'5px'}}/>
             <Typography>نظرات</Typography>
+            <MessageIcon sx={{mx:'5px'}}/>
           </div>
         }
         to="about"
@@ -74,8 +71,8 @@ function MyTabs() {
         {...tabProps(3)}
         label={
           <div className='flex flex-row'>
-            <Contacts sx={{mx:'5px'}}/>
             <Typography>ارتباط با من</Typography>
+            <Contacts sx={{mx:'5px'}}/>
           </div>
         }
         to="contacts"

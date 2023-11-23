@@ -2,7 +2,7 @@ import React from 'react'
 
 const Commuication = () => {
   return (
-    <div>Commuication</div>
+    <div>ارتباطات</div>
   )
 }
 

@@ -3,11 +3,12 @@ import ReactDOM from 'react-dom/client'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { ErrorBoundary } from "react-error-boundary";
 //components
-import App from './App.jsx'
+import App from './components/pages/App.jsx'
 import Communication from './components/pages/Commuication.jsx'
 import About from './components/pages/About.jsx'
 import Contacts from './components/pages/Contacts.jsx'
-import Header from './components/UI/Header.jsx'
+import Header from './components/layout/Header.jsx'
+import Sidebar from './components/layout/Sidebar.jsx';
 //css file
 import '@fontsource/roboto/300.css';
 import '@fontsource/roboto/400.css';
@@ -15,9 +16,13 @@ import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
 import './index.css'
 //material ui components
-import { Grid, Box, CssBaseline } from '@mui/material'
-import Grid2 from '@mui/material/Unstable_Grid2/Grid2.js';
-import Sidebar from './components/UI/Sidebar.jsx';
+import { Grid, CssBaseline } from '@mui/material'
+import rtlPlugin from 'stylis-plugin-rtl';
+import { ThemeProvider, } from '@emotion/react';
+import { createTheme } from '@mui/material/styles'
+import { CacheProvider } from '@emotion/react';
+import createCache from '@emotion/cache';
+import { prefixer } from 'stylis';
 
 const ErrorFallBack = ({ error, resetErrorBoundary }) => {
   return (
@@ -26,24 +31,34 @@ const ErrorFallBack = ({ error, resetErrorBoundary }) => {
     </div>
   )
 };
+const cacheRtl = createCache({
+  key: 'muirtl',
+  stylisPlugins: [prefixer, rtlPlugin],
+});
+const theme = createTheme({
+  direction: "rtl",
+})
 ReactDOM.createRoot(document.getElementById('root')).render(
   <ErrorBoundary FallbackComponent={ErrorFallBack}>
     <BrowserRouter>
-      <CssBaseline />
-      <Header></Header>
-      <Grid container>
-        <Sidebar/>
-        <Grid item lg={10} md={10} sm={9} xs={12}
-        className='h-screen bg-black  p-3 py-5'>
-          {/* bg-gradient-to-r from-[#FFB535] to-[#F2295B] */}
-          <Routes >
-            <Route path='/' element={<App />}></Route>
-            <Route path='contacts' element={<Contacts />}></Route>
-            <Route path='about' element={<About />}></Route>
-            <Route path='communication' element={<Communication />}></Route>
-          </Routes>
-        </Grid>
-      </Grid>
+      <CacheProvider value={cacheRtl}>
+        <ThemeProvider theme={theme}>
+          <CssBaseline />
+          <Header></Header>
+          <Grid container>
+            <Grid item lg={10} md={10} sm={9} xs={12}
+              className='h-screen bg-gradient-to-br from-blue-400 to-blue-700  p-3 py-5'>
+              <Routes >
+                <Route path='/' element={<App />}></Route>
+                <Route path='contacts' element={<Contacts />}></Route>
+                <Route path='about' element={<About />}></Route>
+                <Route path='communication' element={<Communication />}></Route>
+              </Routes>
+            </Grid>
+            <Sidebar />
+          </Grid>
+        </ThemeProvider>
+      </CacheProvider>
     </BrowserRouter >
   </ErrorBoundary>
   ,

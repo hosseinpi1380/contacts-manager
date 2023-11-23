@@ -16,20 +16,20 @@ const DrawerComponent = () => {
 
   return (
     <div>
-      <IconButton onClick={toggleDrawer(true)} sx={{color:'white'}}>
+      <IconButton onClick={toggleDrawer(true)} sx={{ color: 'white' , mr:'auto' }}>
         <MenuIcon />
       </IconButton>
-      <Drawer anchor="left" open={openDrawer} onClose={()=>setOpenDrawer(false)}>
+      <Drawer anchor="left" open={openDrawer} onClose={() => setOpenDrawer(false)}>
         <List>
           {['home', 'Contacts', 'about', 'communication'].map((text, index) => (
-            <ListItem  key={text} onClick={()=>setOpenDrawer(false)} >
+            <ListItem key={text} onClick={() => setOpenDrawer(false)} >
               <ListItemIcon >{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-              <Link to={text=='home'?'/':`/${text}`}> <ListItemText primary={text} /></Link>
+              <Link to={text == 'home' ? '/' : `/${text}`}> <ListItemText primary={text} /></Link>
             </ListItem>
           ))}
         </List>
       </Drawer>
-      {/* Your main content */}
+      
     </div>
   );
 };
