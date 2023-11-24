@@ -45,9 +45,11 @@ ReactDOM.createRoot(document.getElementById('root')).render(
         <ThemeProvider theme={theme}>
           <CssBaseline />
           <Header></Header>
+
           <Grid container>
+            <Sidebar />
             <Grid item lg={10} md={10} sm={9} xs={12}
-              className='h-screen bg-gradient-to-br from-blue-400 to-blue-700  p-3 py-5'>
+              className='h-screen bg-gradient-to-br from-blue-400 to-blue-700  p-3 py-5 text-white text-lg'>
               <Routes >
                 <Route path='/' element={<App />}></Route>
                 <Route path='contacts' element={<Contacts />}></Route>
@@ -55,7 +57,6 @@ ReactDOM.createRoot(document.getElementById('root')).render(
                 <Route path='communication' element={<Communication />}></Route>
               </Routes>
             </Grid>
-            <Sidebar />
           </Grid>
         </ThemeProvider>
       </CacheProvider>
