@@ -1,11 +1,18 @@
 
 import React, { useState } from "react"
 
-
+import { Box, Typography } from "@mui/material"
 function App() {
   return (
     <>
-      با سلام  و عرض ادب و احترام
+    <Box component='div' width='100%'>
+      <Typography variant="h5">با سلام  و عرض ادب و احترام</Typography>
+      <Box component='img' src="/src/assets/banner.webp" width='200px' height='200px' 
+      sx={{display:'flex', justifyContent:"center",}}>
+
+      </Box>
+
+    </Box>
     </>
   )
 }

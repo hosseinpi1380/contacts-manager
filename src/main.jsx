@@ -4,9 +4,9 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { ErrorBoundary } from "react-error-boundary";
 //components
 import App from './components/pages/App.jsx'
-import Communication from './components/pages/Commuication.jsx'
+import Ertebat from './components/pages/Ertebat.jsx'
 import About from './components/pages/About.jsx'
-import Contacts from './components/pages/Contacts.jsx'
+import Nazarat from './components/pages/Nazarat.jsx'
 import Header from './components/layout/Header.jsx'
 import Sidebar from './components/layout/Sidebar.jsx';
 //css file
@@ -53,9 +53,9 @@ ReactDOM.createRoot(document.getElementById('root')).render(
               className='h-screen bg-gradient-to-br from-blue-400 to-blue-700  p-3 py-5 text-white text-lg'>
               <Routes >
                 <Route path='/' element={<App />}></Route>
-                <Route path='contacts' element={<Contacts />}></Route>
                 <Route path='about' element={<About />}></Route>
-                <Route path='communication' element={<Communication />}></Route>
+                <Route path='nazarat' element={<Nazarat />}></Route>
+                <Route path='ertebat' element={<Ertebat />}></Route>
               </Routes>
             </Grid>
           </Grid>

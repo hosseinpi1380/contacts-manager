@@ -62,7 +62,7 @@ function MyTabs() {
             <MessageIcon sx={{mx:'5px'}}/>
           </div>
         }
-        to="about"
+        to="nazarat"
         component={Link}
         iconPosition="start"
         sx={{ color: "white" }}
@@ -75,7 +75,7 @@ function MyTabs() {
             <Contacts sx={{mx:'5px'}}/>
           </div>
         }
-        to="contacts"
+        to="ertebat"
         component={Link}
         iconPosition="start"
         sx={{ color: "white"}}
