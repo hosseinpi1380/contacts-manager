@@ -15,6 +15,7 @@ import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
 import './index.css'
+import './components/UI/style.css'
 //material ui components
 import { Grid, CssBaseline } from '@mui/material'
 import rtlPlugin from 'stylis-plugin-rtl';

@@ -23,7 +23,9 @@
     }
 }
 
-@layer components {}
+@layer components {
+    
+}
 
 @layer utilities {
     form>* {
@@ -66,5 +68,6 @@
     .error-label-message{
         @apply bg-red-700 text-center text-white p-1 rounded-md w-full
     }
+    
 
 }
