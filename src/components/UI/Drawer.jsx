@@ -27,7 +27,7 @@ const DrawerComponent = () => {
 
       </IconButton>
       <Drawer anchor="left" open={openDrawer} onClose={() => setOpenDrawer(false)}>
-        <Box component='img' src='/public/pattern-sample.avif' width='182px' className='bg-cover m-1 shadow-md'>
+        <Box component='img' src='pattern-sample.avif' width='182px' className='bg-cover m-1 shadow-md'>
         </Box>
         <Box sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}>
           <List className='bg-gray-800 text-white h-full flex flex-col'>
