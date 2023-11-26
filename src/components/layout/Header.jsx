@@ -3,7 +3,7 @@ import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
-import DrawerComponent from "../UI/Drawer";
+import DrawerComponent from "../container/Drawer";
 import { ButtonGroup, Button } from "@mui/material";
 import { Hidden } from "@mui/material";
 export default function Header() {
