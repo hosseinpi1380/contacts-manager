@@ -13,42 +13,19 @@ import {
   Routes,
   MemoryRouter,
   useLocation,
+  Link
 } from 'react-router-dom';
-import { StaticRouter } from 'react-router-dom/server';
+
 import { ContextData } from '../../../context/useContext';
-
-function Router(props) {
-  const { children } = props;
-  if (typeof window === 'undefined') {
-    return <StaticRouter location="/drafts">{children}</StaticRouter>;
-  }
-
-  return (
-    <MemoryRouter initialEntries={['/drafts']} initialIndex={0}>
-      {children}
-    </MemoryRouter>
-  );
-}
-
-Router.propTypes = {
-  children: PropTypes.node,
-};
-
-const Link = React.forwardRef(function Link(itemProps, ref) {
-  return <RouterLink ref={ref} {...itemProps} role={undefined} />;
-});
 
 function ListItemLink(props) {
   const { icon, primary, to } = props;
-  const { setOpenDrawer } = ContextData();
-
-
   return (
     <li>
-      <ListItem button component={Link} to={to} onClick={()=>setOpenDrawer(false)}>
-        {icon ? <ListItemIcon>{icon}</ListItemIcon> : null}
-        <ListItemText primary={primary} />
-      </ListItem>
+        <ListItem component={Link} to={to}>
+          {icon ? <ListItemIcon>{icon}</ListItemIcon> : null}
+          <ListItemText primary={primary} />
+        </ListItem>
     </li>
   );
 }
@@ -60,15 +37,13 @@ ListItemLink.propTypes = {
 };
 
 
-export default function ListRouter() {
-  const { setOpenDrawer,toggleDrawer } = ContextData();
-  
+export default function DrawerTabs() {
+  const { setOpenDrawer} = ContextData();
+ 
   return (
     <Box >
-
       <Paper elevation={0}>
-
-        <List aria-label="secondary mailbox folders" onClick={()=>setOpenDrawer(false)}>
+        <List aria-label="secondary mailbox folders" onClick={() => setOpenDrawer(false)}>
           <ListItemLink to="/" primary="خانه" />
           <ListItemLink to="/about" primary="درباره من" />
           <ListItemLink to="/nazarat" primary="نظرات" />
@@ -76,6 +51,5 @@ export default function ListRouter() {
         </List>
       </Paper>
     </Box>
-
   );
 }

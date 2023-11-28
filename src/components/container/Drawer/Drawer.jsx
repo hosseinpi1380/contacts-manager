@@ -5,7 +5,7 @@ import {
   Box,
   Typography,
 } from "@mui/material";
-import ListRouter from "./DrawerTabs";
+import DrawerTabs from './DrawerTabs'
 import MenuIcon from "@mui/icons-material/Menu";
 import { FaTwitter } from "react-icons/fa";
 import FavoriteIcon from "@mui/icons-material/Favorite";
@@ -38,7 +38,7 @@ const DrawerComponent = () => {
         ></Box>
         <Box sx={{ width: "100%", maxWidth: 360, bgcolor: "background.paper" }}>
         </Box>
-          <ListRouter />
+        {/* <DrawerTabs /> */}
         <Box sx={{ display: "flex", flexDirection: "column", mt: 3 }}>
           <Typography sx={{ mx: 1 }}>
             ما را در شبکه های اجتماعی دنبال کنید

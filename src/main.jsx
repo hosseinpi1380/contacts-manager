@@ -23,9 +23,12 @@ const ErrorFallBack = ({ error, resetErrorBoundary }) => {
 };
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-  <ErrorBoundary FallbackComponent={ErrorFallBack}>
-    <ThemeProvider>
-      <MainLayout />
-    </ThemeProvider>
-  </ErrorBoundary>
+  <React.StrictMode>
+
+    <ErrorBoundary FallbackComponent={ErrorFallBack}>
+      <ThemeProvider>
+        <MainLayout />
+      </ThemeProvider>
+    </ErrorBoundary>
+  </React.StrictMode>
 );
