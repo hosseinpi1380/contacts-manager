@@ -11,17 +11,21 @@ import "./index.css";
 import "./components/container/style.css";
 
 import { MainLayout } from "./components/pages/index";
+import { ThemeProvider } from "./context/useContext";
 
 const ErrorFallBack = ({ error, resetErrorBoundary }) => {
   return (
     <div>
       <p>مشکلی پیش امده است.</p>
+      <h1>{error}</h1>
     </div>
   );
 };
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <ErrorBoundary FallbackComponent={ErrorFallBack}>
-    <MainLayout />
+    <ThemeProvider>
+      <MainLayout />
+    </ThemeProvider>
   </ErrorBoundary>
 );
