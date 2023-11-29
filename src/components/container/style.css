@@ -50,3 +50,6 @@ body {
   width: 100%;
  
 }
+.MuiTabs-indicator{
+  color:'black'
+}

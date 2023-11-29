@@ -1,5 +1,4 @@
 import React, { Suspense, lazy } from "react";
-
 import { Header, Sidebar } from "./index.jsx";
 import { Routes, Route, BrowserRouter } from "react-router-dom";
 import { Grid, CssBaseline } from "@mui/material";
@@ -9,6 +8,7 @@ import { createTheme } from "@mui/material/styles";
 import { CacheProvider } from "@emotion/react";
 import createCache from "@emotion/cache";
 import { prefixer } from "stylis";
+import SwipeableViews from "react-swipeable-views";
 const App = lazy(() => import("./App.jsx"));
 const About = lazy(() => import("./About.jsx"));
 const Nazarat = lazy(() => import("./Nazarat.jsx"));
@@ -30,6 +30,7 @@ const MainLayout = () => {
             <Header></Header>
             <Grid container>
               <Sidebar />
+
               <Grid
                 item
                 lg={10}
@@ -40,12 +41,14 @@ const MainLayout = () => {
               from-blue-500 to-green-700 p-3 py-5 text-white text-lg
               flex items-center justify-center flex-col"
               >
-                <Routes>
-                  <Route path="/" element={<App />}></Route>
-                  <Route path="about" element={<About />}></Route>
-                  <Route path="nazarat" element={<Nazarat />}></Route>
-                  <Route path="ertebat" element={<Ertebat />}></Route>
-                </Routes>
+                <SwipeableViews >
+                  <Routes>
+                    <Route path="/" element={<App />}></Route>
+                    <Route path="about" element={<About />}></Route>
+                    <Route path="nazarat" element={<Nazarat />}></Route>
+                    <Route path="ertebat" element={<Ertebat />}></Route>
+                  </Routes>
+                </SwipeableViews>
               </Grid>
             </Grid>
           </Suspense>
