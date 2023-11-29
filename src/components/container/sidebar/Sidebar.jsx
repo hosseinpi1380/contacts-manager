@@ -1,7 +1,7 @@
 import React from "react";
 import Hidden from "@mui/material/Hidden";
 import { Avatar, Box, Grid, Typography } from "@mui/material";
-import TabsC from "../container/TabsC";
+import TabsC from "./SideTabs";
 import Divider from "@mui/material/Divider";
 import { grey } from "@mui/material/colors";
 const Sidebar = () => {
