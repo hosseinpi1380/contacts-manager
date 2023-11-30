@@ -5,7 +5,7 @@ import {
   Box,
   Typography,
 } from "@mui/material";
-import  ListDrawer  from './ListDrawer'
+import  ListDrawer  from './DrawerTabs'
 import MenuIcon from "@mui/icons-material/Menu";
 import { FaTwitter } from "react-icons/fa";
 import FavoriteIcon from "@mui/icons-material/Favorite";
@@ -14,7 +14,6 @@ import { FaLinkedin } from "react-icons/fa";
 import { FaInstagramSquare } from "react-icons/fa";
 import { FaTelegram } from "react-icons/fa";
 import { ContextData } from "../../../context/useContext";
-
 const DrawerComponent = () => {
   const { openDrawer, setOpenDrawer, toggleDrawer } = ContextData();
   return (
@@ -39,7 +38,7 @@ const DrawerComponent = () => {
         <Box sx={{ width: "100%", maxWidth: 360, bgcolor: "background.paper" }}>
         </Box>
 
-        <ListDrawer/>
+        <ListDrawer></ListDrawer>
         <Box sx={{ display: "flex", flexDirection: "column", mt: 3 }}>
           <Typography sx={{ mx: 1 }}>
             ما را در شبکه های اجتماعی دنبال کنید

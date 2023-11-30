@@ -3,53 +3,42 @@ import { NavLink } from "react-router-dom";
 import { AboutIcon, ErtebatIcon, HomeIcon, NazarIcon } from '../../icons/icons'
 import { ContextData } from "../../../context/useContext";
 import { Button, Box, } from "@mui/material";
-import { ClickAwayListener } from "@mui/base"
 import '../style.css'
-
 const ListDrawer = () => {
     const { setOpenDrawer } = ContextData();
-
-
-    const closeHandler = () => {
+    const handleLinkClick = () => {
         setOpenDrawer(false)
     }
-
     return (
-        <ClickAwayListener onClickAway={() => setOpenDrawer(false)}>
             <Box
-                sx={{ width: 250 }}
+                sx={{ width: 250 ,display:'flex',flexDirection:'column'}}
                 role="presentation"
-                
             >
-
-                <NavLink to='/' onClick={closeHandler}>
+                <NavLink to='/' onClick={handleLinkClick}>
                     <Button>
                         خانه
                         <HomeIcon />
                     </Button>
                 </NavLink>
-                <NavLink to='/about' onClick={closeHandler}>
+                <NavLink to='/about' onClick={handleLinkClick}>
                     <Button>
                         درباه من
                         <AboutIcon />
                     </Button>
                 </NavLink>
-                <NavLink to='/nazarat' onClick={closeHandler}>
+                <NavLink to='/nazarat' onClick={handleLinkClick}>
                     <Button>
                         نظرات
                         <NazarIcon />
                     </Button>
                 </NavLink>
-                <NavLink to='/ertebat' onClick={closeHandler}>
+                <NavLink to='/ertebat' onClick={handleLinkClick}>
                     <Button>
                         ارتباط با من
                         <ErtebatIcon />
                     </Button>
                 </NavLink>
             </Box>
-        </ClickAwayListener>
-
-
     )
 };
 export default ListDrawer;
