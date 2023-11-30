@@ -19,28 +19,28 @@ const ListDrawer = () => {
             <Box
                 sx={{ width: 250 }}
                 role="presentation"
-                onClick={() => setOpenDrawer(false)}
+                
             >
 
-                <NavLink to='/'>
+                <NavLink to='/' onClick={closeHandler}>
                     <Button>
                         خانه
                         <HomeIcon />
                     </Button>
                 </NavLink>
-                <NavLink to='/about'>
+                <NavLink to='/about' onClick={closeHandler}>
                     <Button>
                         درباه من
                         <AboutIcon />
                     </Button>
                 </NavLink>
-                <NavLink to='/nazarat'>
+                <NavLink to='/nazarat' onClick={closeHandler}>
                     <Button>
                         نظرات
                         <NazarIcon />
                     </Button>
                 </NavLink>
-                <NavLink to='/ertebat'>
+                <NavLink to='/ertebat' onClick={closeHandler}>
                     <Button>
                         ارتباط با من
                         <ErtebatIcon />
