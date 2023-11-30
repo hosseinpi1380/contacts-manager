@@ -6,6 +6,10 @@ export const ContextData = () => {
 };
 export const ThemeProvider = ({ children }) => {
   const [openDrawer, setOpenDrawer] = useState(false);
+  const [value, setValue] = useState(false)
+  const [toggled, setToggled] = React.useState(false);
+
+
   const toggleDrawer = (open) => (event) => {
     if (
       event.type === "keydown" &&
@@ -15,15 +19,9 @@ export const ThemeProvider = ({ children }) => {
     }
     setOpenDrawer(true);
   };
-  // const toggleDrawer = (state) => () => {
-  //   if (state === true) {
-  //      setOpenDrawer(state);
-  //   } else {
-  //      setOpenDrawer(false);
-  //   }
-  //  };
+
   return (
-    <ThemeContext.Provider value={{ openDrawer, setOpenDrawer, toggleDrawer }}>
+    <ThemeContext.Provider value={{ openDrawer, setOpenDrawer, toggleDrawer, value, setValue, setToggled, toggled }}>
       {children}
     </ThemeContext.Provider>
   );

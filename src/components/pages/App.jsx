@@ -3,10 +3,8 @@ import { Box, Typography } from "@mui/material";
 
 
 function App() {
-  
   return (
     <>
-      
         <Box component="div" width="100%">
           <Typography variant="h5">با سلام و عرض ادب و احترام</Typography>
           <Box

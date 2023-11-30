@@ -14,16 +14,23 @@ import { FaLinkedin } from "react-icons/fa";
 import { FaInstagramSquare } from "react-icons/fa";
 import { FaTelegram } from "react-icons/fa";
 import { ContextData } from "../../../context/useContext";
+import DrawerTabs from "./DrawerTabs";
+
+import { Sidebar,Menu,SubMenu,MenuItem,menuClasses } from "react-pro-sidebar";
+import Icon from 'react-pro-sidebar/dist/'
 const DrawerComponent = () => {
   const { openDrawer, setOpenDrawer, toggleDrawer } = ContextData();
+  const [value,setValue]=useState();
   return (
     <div>
       <IconButton
-        onClick={toggleDrawer(true)}
+        onClick={()=>toggleDrawer(true)}
         sx={{ color: "white", mr: "auto" }}
       >
         <MenuIcon />
       </IconButton>
+      
+  
       <Drawer
         anchor="left"
         open={openDrawer}
@@ -38,7 +45,7 @@ const DrawerComponent = () => {
         <Box sx={{ width: "100%", maxWidth: 360, bgcolor: "background.paper" }}>
         </Box>
 
-        <ListDrawer></ListDrawer>
+        <DrawerTabs></DrawerTabs>
         <Box sx={{ display: "flex", flexDirection: "column", mt: 3 }}>
           <Typography sx={{ mx: 1 }}>
             ما را در شبکه های اجتماعی دنبال کنید

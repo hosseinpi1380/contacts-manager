@@ -3,6 +3,10 @@
 @tailwind utilities;
 
 @layer base {
+    #root {
+        @apply fixed w-screen
+    }
+
     .menu {
         @apply fixed right-6 cursor-pointer top-1/2 left-1/2 opacity-0 -translate-x-1/2 -translate-y-1/2;
     }
@@ -18,14 +22,14 @@
     form>div input {
         @apply my-2 focus-within:outline-none bg-slate-300 shadow-md p-2 rounded-md placeholder:text-gray-700
     }
-    input{
+
+    input {
         @apply focus-within:outline-none
     }
+
 }
 
-@layer components {
-    
-}
+@layer components {}
 
 @layer utilities {
     form>* {
@@ -35,8 +39,8 @@
     .contacts_btn>* {
         @apply inline-flex flex-1 w-1/2 mt-2 gap-2 text-right
     }
-    
-    .contacts_btn{
+
+    .contacts_btn {
         @apply flex flex-row gap-1
     }
 
@@ -57,17 +61,20 @@
     }
 
     .cancel-create-btn {
-        @apply bg-red-700 p-1 text-white rounded-md ;
+        @apply bg-red-700 p-1 text-white rounded-md;
     }
-    .contacts-container{
+
+    .contacts-container {
         @apply grid gap-4 lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 mt-4 max-sm:w-full;
     }
-    .create-btn{
-        @apply  bg-gray-800 text-white p-2 rounded-md shadow-md items-end flex;
+
+    .create-btn {
+        @apply bg-gray-800 text-white p-2 rounded-md shadow-md items-end flex;
     }
-    .error-label-message{
+
+    .error-label-message {
         @apply bg-red-700 text-center text-white p-1 rounded-md w-full
     }
-    
+
 
 }
