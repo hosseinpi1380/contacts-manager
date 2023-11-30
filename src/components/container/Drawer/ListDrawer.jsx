@@ -1,41 +1,54 @@
-// import { Link } from "react-router-dom";
 import React from 'react';
-import { HomeIcon } from '../../icons/icons'
-import { List, ListItem, ListItemButton, ListItemText, ListItemIcon, Box, createTheme } from "@mui/material";
+import { NavLink } from "react-router-dom";
+import { AboutIcon, ErtebatIcon, HomeIcon, NazarIcon } from '../../icons/icons'
 import { ContextData } from "../../../context/useContext";
-import { App, About, Nazarat, Ertebat } from '../../pages/index'
-import { AppBar, Tabs, Tab } from "@mui/material";
+import { Button, Box, } from "@mui/material";
+import { ClickAwayListener } from "@mui/base"
 import '../style.css'
-import { Link } from "react-router-dom";
-const ListDrawer = () => {
-    const { toggleDrawer, setOpenDrawer } = ContextData();
-    const [value, setValue] = React.useState(0);
 
-    const handleChange = (_e, newValue) => {
-        setValue(newValue);
-    };
+const ListDrawer = () => {
+    const { setOpenDrawer } = ContextData();
+
+
+    const closeHandler = () => {
+        setOpenDrawer(false)
+    }
+
     return (
-        <Box
-            sx={{ width: 250 }}
-            role="presentation"
-            onClick={() => toggleDrawer(false)}
-            onKeyDown={toggleDrawer(false)}
-        >
-            
-            <Tabs
-                orientation='vertical'
-                value={value}
-                onChange={handleChange}
-                aria-label="Navigation"
-                indicatorColor="primary"
-                textColor="primary"
+        <ClickAwayListener onClickAway={() => setOpenDrawer(false)}>
+            <Box
+                sx={{ width: 250 }}
+                role="presentation"
+                onClick={() => setOpenDrawer(false)}
             >
-                <Tab label="خانه" index={0} component={Link}  />
-                <Tab label="درباره من" index={1} component={Link}  />
-                <Tab label="نظرات" index={1} component={Link}  />
-                <Tab label="ارتباط با من" index={1} component={Link}  />
-            </Tabs>
-        </Box>
+
+                <NavLink to='/'>
+                    <Button>
+                        خانه
+                        <HomeIcon />
+                    </Button>
+                </NavLink>
+                <NavLink to='/about'>
+                    <Button>
+                        درباه من
+                        <AboutIcon />
+                    </Button>
+                </NavLink>
+                <NavLink to='/nazarat'>
+                    <Button>
+                        نظرات
+                        <NazarIcon />
+                    </Button>
+                </NavLink>
+                <NavLink to='/ertebat'>
+                    <Button>
+                        ارتباط با من
+                        <ErtebatIcon />
+                    </Button>
+                </NavLink>
+            </Box>
+        </ClickAwayListener>
+
 
     )
 };
