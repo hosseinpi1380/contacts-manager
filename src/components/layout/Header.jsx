@@ -19,7 +19,7 @@ export default function Header() {
             <Toolbar className="bg-blue-950 text-white flex justify-between">
               {toggled && <SidePro />}
               
-              <IconButton onClick={() => setToggled(prev => !prev)}>
+              <IconButton onClick={() => setToggled(prev => !prev)} sx={{color:'white'}}>
                 <MenuIcon />
               </IconButton>
 

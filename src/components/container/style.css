@@ -53,3 +53,6 @@ body {
 .MuiTabs-indicator{
   color:'black'
 }
+.css-1n9b5ie > .ps-menu-button:hover{
+  background-color: rgba(0, 0,0,0.5) !important;
+}

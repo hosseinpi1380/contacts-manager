@@ -8,8 +8,6 @@ export const ThemeProvider = ({ children }) => {
   const [openDrawer, setOpenDrawer] = useState(false);
   const [value, setValue] = useState(false)
   const [toggled, setToggled] = React.useState(false);
-
-
   const toggleDrawer = (open) => (event) => {
     if (
       event.type === "keydown" &&
