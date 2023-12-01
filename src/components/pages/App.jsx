@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Box, Typography } from "@mui/material";
-
+import homeBg from '../../assets/Home.png'
 
 function App() {
   return (
@@ -9,7 +9,7 @@ function App() {
           <Typography variant="h5">با سلام و عرض ادب و احترام</Typography>
           <Box
             component="img"
-            src="src/assets/Home.png"
+            src={homeBg}
             width="200px"
             height="200px"
             sx={{

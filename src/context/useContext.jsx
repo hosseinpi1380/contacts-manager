@@ -19,7 +19,8 @@ export const ThemeProvider = ({ children }) => {
   };
 
   return (
-    <ThemeContext.Provider value={{ openDrawer, setOpenDrawer, toggleDrawer, value, setValue, setToggled, toggled }}>
+    <ThemeContext.Provider value={{ openDrawer, setOpenDrawer, 
+    toggleDrawer, value, setValue, setToggled, toggled }}>
       {children}
     </ThemeContext.Provider>
   );

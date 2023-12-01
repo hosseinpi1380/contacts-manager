@@ -4,10 +4,11 @@ import { Link } from 'react-router-dom';
 import { ContextData } from '../../context/useContext';
 import { AboutIcon, ErtebatIcon, HomeIcon, NazarIcon } from '../icons/icons'
 import {
-
     Box,
     Typography,
 } from "@mui/material";
+import IconButton from '@mui/material/IconButton';
+import { IoMdCloseCircle } from 'react-icons/io'
 import { FaTwitter } from "react-icons/fa";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import { FaFacebookSquare } from "react-icons/fa";
@@ -20,6 +21,10 @@ const SidePro = () => {
 
         <div style={{ display: 'flex', mt: '20px', zIndex: 100, position: 'fixed', height: '100%', minHeight: '400px', direction: 'rtl' }} dir='rtl'>
             <Sidebar rtl onBackdropClick={() => setToggled(false)} toggled={toggled} breakPoint="all" transitionDuration={3000}>
+                <IconButton onClick={()=>setToggled(false)} 
+                sx={{position:'absolute',right:0,top:2,fontSize:40}}>
+                    <IoMdCloseCircle />
+                </IconButton>
                 <Box
                     component="img"
                     src="pattern-sample.avif"
