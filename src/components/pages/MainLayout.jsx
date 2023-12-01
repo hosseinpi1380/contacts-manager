@@ -41,14 +41,14 @@ const MainLayout = () => {
               from-blue-500 to-green-700 p-3 py-5 text-white text-lg
               flex items-center justify-center flex-col"
               >
-                <SwipeableViews >
+                
                   <Routes>
                     <Route path="/" element={<App />}></Route>
                     <Route path="about" element={<About />}></Route>
                     <Route path="nazarat" element={<Nazarat />}></Route>
                     <Route path="ertebat" element={<Ertebat />}></Route>
                   </Routes>
-                </SwipeableViews>
+                
               </Grid>
             </Grid>
           </Suspense>
