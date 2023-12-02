@@ -97,7 +97,7 @@ export const hezagon={
       move: {
         attract: { enable: false, rotateX: 600, rotateY: 1200 },
         bounce: false,
-        direction: "bottom",
+        direction: "random",
         enable: true,
         out_mode: "out",
         random: true,

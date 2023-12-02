@@ -8,7 +8,12 @@ import { createTheme } from "@mui/material/styles";
 import { CacheProvider } from "@emotion/react";
 import createCache from "@emotion/cache";
 import { prefixer } from "stylis";
-import SwipeableViews from "react-swipeable-views";
+import Particles from "react-particles";
+import { sample, hezagon } from "../constants/Particles";
+import { loadFull } from "tsparticles";
+import ParticleCom from '../container/App'
+import { useCallback } from "react";
+
 const App = lazy(() => import("./App.jsx"));
 const About = lazy(() => import("./About.jsx"));
 const Nazarat = lazy(() => import("./Nazarat.jsx"));
@@ -21,6 +26,13 @@ const theme = createTheme({
   direction: "rtl",
 });
 const MainLayout = () => {
+  const particlesInit = useCallback(async engine => {
+    console.log(engine);
+  }, []);
+
+  const particlesLoaded = useCallback(async container => {
+    console.log(container);
+  }, []);
   return (
     <BrowserRouter>
       <CacheProvider value={cacheRtl}>
@@ -28,6 +40,8 @@ const MainLayout = () => {
           <Suspense fallback="در حال لود شدن">
             <CssBaseline />
             <Header></Header>
+            <ParticleCom />
+
             <Grid container>
               <Sidebar />
 
@@ -41,14 +55,14 @@ const MainLayout = () => {
               from-blue-500 to-green-700 p-3 py-5 text-white text-lg
               flex items-center justify-center flex-col"
               >
-                
-                  <Routes>
-                    <Route path="/" element={<App />}></Route>
-                    <Route path="about" element={<About />}></Route>
-                    <Route path="nazarat" element={<Nazarat />}></Route>
-                    <Route path="ertebat" element={<Ertebat />}></Route>
-                  </Routes>
-                
+
+                <Routes>
+                  <Route path="/" element={<App />}></Route>
+                  <Route path="about" element={<About />}></Route>
+                  <Route path="nazarat" element={<Nazarat />}></Route>
+                  <Route path="ertebat" element={<Ertebat />}></Route>
+                </Routes>
+
               </Grid>
             </Grid>
           </Suspense>
