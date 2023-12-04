@@ -48,6 +48,7 @@ function MyTabs() {
       variant="scrollable"
       scrollButtons={true}
       selectionFollowsFocus
+      allowScrollButtonsMobile
       orientation="vertical"
       sx={{ flexGrow: "1", display: "flex" }}
     >
@@ -72,7 +73,7 @@ function MyTabs() {
           {...tab}
         />
       ))}
-      
+
     </Tabs>
   );
 }

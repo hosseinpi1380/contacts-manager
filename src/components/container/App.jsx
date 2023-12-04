@@ -23,7 +23,7 @@ const ParticleCom = () => {
             init={particlesInit}
             loaded={particlesLoaded}
             options={hezagon}
-            style={{width:'100vw',height:'100vh'}}
+            style={{width:'100vw',height:'100vh',color:'black'}}
         />
     );
 };

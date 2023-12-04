@@ -1,11 +1,11 @@
 import React from 'react'
-import broshor from '../../assets/روشور.png'
-import Box from '@mui/material/Box'
+
+import {Box,Typography} from '@mui/material'
 const Commuication = () => {
   return (
    <>
-  <Box component='img' src={broshor} width="200px" height="200px"> 
-
+  <Box component='div'>
+    <Typography component='h4'>ارتباط با ما</Typography>
   </Box>
    </>
   )

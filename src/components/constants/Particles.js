@@ -29,13 +29,13 @@ export const sample = {
     },
     particles: {
         color: {
-            value: "#333",
+            value: "#000",
         },
         links: {
-            color: "#ffffff",
+            color: "#000",
             distance: 150,
             enable: true,
-            opacity: 0.5,
+            opacity: 1,
             width: 1,
         },
         move: {
@@ -51,7 +51,7 @@ export const sample = {
         number: {
             density: {
                 enable: true,
-                area: 800,
+                area: 1000,
             },
             value: 80,
         },
@@ -72,7 +72,7 @@ export const hezagon={
     interactivity: {
       detect_on: "canvas",
       events: {
-        onclick: { enable: false, mode: "push" },
+        onclick: { enable:false, mode: "push" },
         onhover: {
           enable: false,
           mode: "attract",
@@ -88,31 +88,31 @@ export const hezagon={
     particles: {
       color: { value: "#ffffff" },
       line_linked: {
-        color: "#ffffff",
+        color: "#000",
         distance: 150,
-        enable: true,
+        enable: false,
         opacity: 0.4,
-        width: 1
+        width: 0.5
       },
       move: {
-        attract: { enable: false, rotateX: 600, rotateY: 1200 },
-        bounce: false,
+        attract: { enable: true, rotateX: 600, rotateY: 1200 },
+        bounce: true,
         direction: "random",
         enable: true,
         out_mode: "out",
         random: true,
-        speed: 4,
-        straight: false
+        speed: 3,
+        straight: true,
       },
       number: { density: { enable: true, value_area: 800 }, value: 80 },
       opacity: {
-        anim: { enable: false, opacity_min: 0.1, speed: 1, sync: false },
+        anim: { enable: true, opacity_min: 0.1, speed: 1, sync: false },
         random: false,
         value: 0.5
       },
       shape: {
         character: {
-          fill: false,
+          fill: true,
           font: "Verdana",
           style: "",
           value: "*",
@@ -124,13 +124,13 @@ export const hezagon={
           src: "images/github.svg",
           width: 100
         },
-        polygon: { nb_sides: 3 },
+        polygon: { nb_sides: 7 },
         stroke: { color: "#000000", width: 0 },
         type: "circle"
       },
       size: {
         anim: { enable: false, size_min: 0.1, speed: 40, sync: false },
-        random: true,
+        random: false,
         value: 5
       }
     },
@@ -144,10 +144,10 @@ export const hezagon={
     retina_detect: true
   };
 export const fake={
-  
-    
 
-    
+
+
+
       particles: {
         color: {
           value: "#FF0000",

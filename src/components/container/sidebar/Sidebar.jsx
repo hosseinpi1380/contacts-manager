@@ -7,7 +7,7 @@ import { grey } from "@mui/material/colors";
 const Sidebar = () => {
   return (
     <>
-      <Hidden smDown>
+      <Hidden smDown >
         <Grid
           item
           lg={2}
@@ -17,7 +17,7 @@ const Sidebar = () => {
           sx={{ height: "100vh", width: "100%", color: "white" }}
           className="bg-gray-900"
         >
-          <Box>
+          <Box >
             <Avatar
               alt="Remy Sharp"
               src="/bg-1.jpg"
