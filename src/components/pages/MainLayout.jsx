@@ -41,7 +41,7 @@ const MainLayout = () => {
             <CssBaseline />
             <Header/>
             <ParticleCom />
-            <Grid container>
+            <Grid container sx={{overflowY:'visible'}}>
               <Sidebar />
               <Grid
                 item
@@ -50,8 +50,8 @@ const MainLayout = () => {
                 sm={9}
                 xs={12}
                 className="bg-gradient-to-br
-              from-blue-500 to-green-700 p-3 py-5 text-white text-lg
-               h-screen overflow-y-scroll mb-1 pb-1"
+              from-blue-500 to-green-700 p-3 py-5 text-white text-lg mb-1 pb-1
+               h-full"
               >
                 <Routes>
                   <Route path="/" element={<App />}></Route>

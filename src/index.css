@@ -3,9 +3,9 @@
 @tailwind utilities;
 
 @layer base {
-    #root {
+    /* #root {
         @apply fixed w-screen
-    }
+    } */
 
     .menu {
         @apply fixed right-6 cursor-pointer top-1/2 left-1/2 opacity-0 -translate-x-1/2 -translate-y-1/2;

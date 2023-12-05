@@ -19,10 +19,12 @@ const About = () => {
     {id:2,name:'js',value:50,color:'warning',icon:jsSVG},
     {id:3,name:'reactJs',value:50,color:'primary',icon:reactSVG},
     {id:4,name:'git',value:50,color:'error',icon:gitSVG},
+    {id:5,name:'tailwind css',value:50,color:'primary',icon:null},
+    
 
   ]
   return (
-    <Box component="div" className="bg-blue-900 p-2 rounded-md">
+    <Box component="div" className="bg-blue-900 p-2 rounded-md overflow-y-auto">
       <Divider
         textAlign="center"
         sx={{

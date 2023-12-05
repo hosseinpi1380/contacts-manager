@@ -4,7 +4,7 @@ import {Box,Typography} from '@mui/material'
 const Commuication = () => {
   return (
    <>
-  <Box component='div'>
+  <Box component='div' height='100vh'>
     <Typography component='h4'>ارتباط با ما</Typography>
   </Box>
    </>

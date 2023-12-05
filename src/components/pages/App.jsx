@@ -17,6 +17,7 @@ function App() {
       <Box
         component="div"
         width="100%"
+        height='100vh'
         sx={{
           display: "flex",
           alignItems: "center",
