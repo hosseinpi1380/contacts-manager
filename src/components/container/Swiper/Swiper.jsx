@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import { Controller } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules';
+import homePng from '../../../assets/png/Home.png';
+import person from '../../../assets/png/person-01.jpg';
+
 
 // import { Swiper, SwiperSlide } from 'swiper/react';
 
@@ -23,11 +25,12 @@ const SwiperComponent = () => {
       onSwiper={setFirstSwiper}
       controller={{ control: secondSwiper }}
       spaceBetween={40}
+      autoplay={true}
+       loop={true}
     >
-      <SwiperSlide>Slide 1</SwiperSlide>
-      <SwiperSlide>Slide 2</SwiperSlide>
-      <SwiperSlide>Slide 3</SwiperSlide>
-      <SwiperSlide>Slide 4</SwiperSlide>
+      <SwiperSlide>{homePng}</SwiperSlide>
+      <SwiperSlide>{person}</SwiperSlide>
+
     </Swiper>
   );
 };

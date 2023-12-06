@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { Box, Chip, Typography, Divider, Grid, Avatar } from "@mui/material";
 import aboutImg from "../../assets/search.png";
-import htmlSVG from "../../assets/html.svg";
-import cssSVG from "../../assets/css.svg";
-import jsSVG from "../../assets/javascript.svg";
-import gitSVG from "../../assets/git.svg";
-import reactSVG from "../../assets/react.svg";
+import htmlSVG from "../../assets/svg/html.svg";
+import cssSVG from "../../assets/svg/css.svg";
+import jsSVG from "../../assets/svg/javascript.svg";
+import gitSVG from "../../assets/svg/git.svg";
+import reactSVG from "../../assets/svg/react.svg";
 import { ArrowLeftRounded } from "@mui/icons-material";
 import LinearProgress from "@mui/material/LinearProgress";
 const About = () => {

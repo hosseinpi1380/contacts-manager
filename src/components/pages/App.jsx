@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState, useRef } from "react";
 import { Box, Typography } from "@mui/material";
-import homeBg from "../../assets/Home.png";
+import homeBg from "../../assets/png/Home.png";
 import SwiperComponent from '../container/Swiper/Swiper'
 import Typewriter from "typewriter-effect";
 
@@ -35,7 +35,7 @@ function App() {
             typewriter.deleteAll().start();
           }}
         />
-        <SwiperComponent/>
+        {/* <SwiperComponent/> */}
 
       </Box>
     </>
