@@ -19,9 +19,9 @@ const SidePro = () => {
     const { toggled, setToggled } = ContextData();
     return createPortal(
 
-        <div style={{ display: 'flex', mt: '20px', zIndex: 100, position: 'fixed', height: '100%', minHeight: '400px', direction: 'rtl' }} dir='rtl'>
+        <div style={{ display: 'flex', mt: '20px', zIndex: 100, position: 'sticky', height: '100%', direction: 'rtl' }} dir='rtl'>
             <Sidebar rtl onBackdropClick={() => setToggled(false)} toggled={toggled} breakPoint="all" transitionDuration={3000}>
-                <IconButton onClick={()=>setToggled(false)} 
+                <IconButton onClick={()=>setToggled(false)}
                 sx={{position:'absolute',right:0,top:2,fontSize:40}}>
                     <IoMdCloseCircle />
                 </IconButton>
