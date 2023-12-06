@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState, useRef } from "react";
 import { Box, Typography } from "@mui/material";
 import homeBg from "../../assets/Home.png";
-
+import SwiperComponent from '../container/Swiper/Swiper'
 import Typewriter from "typewriter-effect";
 
 function App() {
@@ -17,31 +17,26 @@ function App() {
       <Box
         component="div"
         width="100%"
-        height='100vh'
+        height="100vh"
         sx={{
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          flexDirection: "column",
+          // display: "flex",
+          // alignItems: "center",
+          // justifyContent: "center",
+          // flexDirection: "column",
+          p:2
+
         }}
+        className="bg-gradient-to-br from-blue-500 to-blue-600"
       >
         <Typewriter
           options={{ strings: name, autoStart: true, loop: true }}
+          sx={{ color: "black" }}
           onInit={(typewriter) => {
             typewriter.deleteAll().start();
           }}
         />
-        <Box
-          component="img"
-          src={homeBg}
-          width="200px"
-          height="200px"
-          sx={{
-            display: "flex",
-            justifyContent: "center",
-            textAlign: "center",
-          }}
-        ></Box>
+        <SwiperComponent/>
+
       </Box>
     </>
   );

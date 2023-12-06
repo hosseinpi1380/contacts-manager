@@ -86,7 +86,7 @@ export const hezagon={
       }
     },
     particles: {
-      color: { value: "#ffffff" },
+      color: { value: "#23448e" },
       line_linked: {
         color: "#000",
         distance: 150,

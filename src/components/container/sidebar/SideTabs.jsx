@@ -63,7 +63,7 @@ function MyTabs() {
           component={Link}
           sx={{
             "&.MuiTab-root": {
-              backgroundColor: grey[800],
+              backgroundColor: '#0e7490',
               borderRadius: 1,
               m: 0.5,
               color: "white",

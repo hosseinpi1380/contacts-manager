@@ -3,7 +3,6 @@ import Hidden from "@mui/material/Hidden";
 import { Avatar, Box, Grid, Typography } from "@mui/material";
 import TabsC from "./SideTabs";
 import Divider from "@mui/material/Divider";
-import { grey } from "@mui/material/colors";
 const Sidebar = () => {
   return (
     <>
@@ -14,8 +13,8 @@ const Sidebar = () => {
           md={2}
           sm={3}
           xs={0}
-          sx={{ height: "100vh", width: "100%", color: "white" }}
-          className="bg-gray-900"
+          sx={{  width: "100%", color: "white" }}
+          className="bg-cyan-900"
         >
           <Box >
             <Avatar

@@ -8,12 +8,9 @@ import { createTheme } from "@mui/material/styles";
 import { CacheProvider } from "@emotion/react";
 import createCache from "@emotion/cache";
 import { prefixer } from "stylis";
-import Particles from "react-particles";
-import { sample, hezagon } from "../constants/Particles";
-import { loadFull } from "tsparticles";
-import ParticleCom from "../container/App";
+import ParticleCom from "../container/Particles.jsx";
 import { useCallback } from "react";
-import ProgressComponent from "../container/Prgress.jsx";
+
 const App = lazy(() => import("./App.jsx"));
 const About = lazy(() => import("./About.jsx"));
 const Nazarat = lazy(() => import("./Nazarat.jsx"));
@@ -49,9 +46,8 @@ const MainLayout = () => {
                 md={10}
                 sm={9}
                 xs={12}
-                className="bg-gradient-to-br
-              from-blue-500 to-green-700 p-3 py-5 text-white text-lg mb-1 pb-1
-               h-full"
+                // bg-gradient-to-br from-blue-500 to-green-700
+                className=" p-1 text-white text-lg mb-1 pb-1  h-screen"
               >
                 <Routes>
                   <Route path="/" element={<App />}></Route>

@@ -1,28 +1,54 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Box, Chip, Typography, Divider, Grid, Avatar } from "@mui/material";
 import aboutImg from "../../assets/search.png";
-import htmlSVG from '../../assets/html.svg';
-import cssSVG from '../../assets/css.svg';
-import jsSVG from '../../assets/javascript.svg';
-import gitSVG from '../../assets/git.svg';
-import reactSVG from '../../assets/react.svg';
-import {
-  ArrowLeftRounded,
-  CodeOffRounded,
-  CodeRounded,
-} from "@mui/icons-material";
+import htmlSVG from "../../assets/html.svg";
+import cssSVG from "../../assets/css.svg";
+import jsSVG from "../../assets/javascript.svg";
+import gitSVG from "../../assets/git.svg";
+import reactSVG from "../../assets/react.svg";
+import { ArrowLeftRounded } from "@mui/icons-material";
 import LinearProgress from "@mui/material/LinearProgress";
 const About = () => {
-  const skils=[
-    {id:0,name:'html',value:70,color:'error',icon:htmlSVG},
-    {id:1,name:'css',value:70,color:'primary',icon:cssSVG},
-    {id:2,name:'js',value:50,color:'warning',icon:jsSVG},
-    {id:3,name:'reactJs',value:50,color:'primary',icon:reactSVG},
-    {id:4,name:'git',value:50,color:'error',icon:gitSVG},
-    {id:5,name:'tailwind css',value:50,color:'primary',icon:null},
-    
+  const [js, setJs] = useState(50);
+  const [html, setHtml] = useState(0);
+  const [css, setCss] = useState(0);
+  const [reactJs, setReactJs] = useState(0);
+  const [git, setGit] = useState(0);
+  const [tailwind, setTailwind] = useState(0);
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setJs((prev) => Math.min(Math.random() * 10 + prev, 50));
+      setHtml((prev) => Math.min(Math.random() * 10 + prev, 70));
+      setCss((prev) => Math.min(Math.random() * 10 + prev, 70));
+      setReactJs((prev) => Math.min(Math.random() * 10 + prev, 50));
+      setGit((prev) => Math.min(Math.random() * 10 + prev, 60));
+      setTailwind((prev) => Math.min(Math.random() * 100 + prev, 70));
+    }, 200);
+    return () => {
+      setInterval(timer);
+    };
+  }, []);
+  const skils = [
+    { id: 0, name: "html", value: html, color: "error", icon: htmlSVG },
+    { id: 1, name: "css", value: css, color: "primary", icon: cssSVG },
+    { id: 2, name: "js", value: js, color: "warning", icon: jsSVG },
+    {
+      id: 3,
+      name: "reactJs",
+      value: reactJs,
+      color: "primary",
+      icon: reactSVG,
+    },
+    { id: 4, name: "git", value: git, color: "error", icon: gitSVG },
+    {
+      id: 5,
+      name: "tailwind css",
+      value: tailwind,
+      color: "primary",
+      icon: null,
+    },
+  ];
 
-  ]
   return (
     <Box component="div" className="bg-blue-900 p-2 rounded-md overflow-y-auto">
       <Divider
@@ -113,18 +139,30 @@ const About = () => {
         ></Chip>
       </Divider>
 
-      {skils.map(skill=>
-        <Box component='div' sx={{my:2}} id={skill.id}>
-        <Chip sx={{p:1}}
-            label={
-              <div style={{display:'flex',justifyContent:'space-between'}}>
-                <Typography component="h2">{skill.name}</Typography>
-                <Box component='img' sx={{ml:2}} src={skill.icon} height={20}></Box>
-              </div>
-            }
-            color={skill.color}
-            variant="filled"
-          ></Chip>
+      {skils.map((skill) => (
+        <Box component="div" sx={{ my: 2 }} key={skill.id}>
+          <Box component="div" sx={{ display: "flex", flexDirection: "row" }}>
+            <Chip
+              sx={{ p: 1 }}
+              label={
+                <div
+                  style={{ display: "flex", justifyContent: "space-between" }}
+                >
+                  <Typography component="h2">{skill.name}</Typography>
+                  <Box
+                    component="img"
+                    sx={{ ml: 2 }}
+                    src={skill.icon}
+                    height={20}
+                  ></Box>
+                </div>
+              }
+              color={skill.color}
+              variant="filled"
+            ></Chip>
+            <Typography>{Math.round(skill.value)}%</Typography>
+          </Box>
+
           <LinearProgress
             variant="determinate"
             value={skill.value}
@@ -132,7 +170,7 @@ const About = () => {
             sx={{ height: 10, borderRadius: 2, mt: 1 }}
           />
         </Box>
-      )}
+      ))}
     </Box>
   );
 };
