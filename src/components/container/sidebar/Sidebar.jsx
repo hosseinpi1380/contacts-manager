@@ -14,7 +14,7 @@ const Sidebar = () => {
           sm={3}
           xs={0}
           sx={{  width: "100%", color: "white" }}
-          className="bg-cyan-900"
+          className="bg-gray-900"
         >
           <Box >
             <Avatar

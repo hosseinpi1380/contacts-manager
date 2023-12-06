@@ -6,7 +6,7 @@ export { default as MainLayout } from "./MainLayout";
 export { default as Nazarat } from "./Nazarat";
 
 //layout
-export {default as Header} from '../layout/Header'
-export {default as Sidebar} from '../container/sidebar/Sidebar'
+export {default as Header} from '../components/layout/Header'
+export {default as Sidebar} from '../components/container/sidebar/Sidebar'
 
 //components

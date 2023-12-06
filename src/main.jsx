@@ -10,7 +10,7 @@ import "@fontsource/roboto/700.css";
 import "./index.css";
 import "./components/container/style.css";
 
-import { MainLayout } from "./components/pages/index";
+import  MainLayout  from "./pages/MainLayout";
 import { ThemeProvider } from "./context/useContext";
 
 const ErrorFallBack = ({ error, resetErrorBoundary }) => {

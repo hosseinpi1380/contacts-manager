@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { Box, Chip, Typography, Divider, Grid, Avatar } from "@mui/material";
-import aboutImg from "../../assets/search.png";
-import htmlSVG from "../../assets/svg/html.svg";
-import cssSVG from "../../assets/svg/css.svg";
-import jsSVG from "../../assets/svg/javascript.svg";
-import gitSVG from "../../assets/svg/git.svg";
-import reactSVG from "../../assets/svg/react.svg";
+// import aboutImg from "../../assets/search.png";
+import htmlSVG from "../assets/svg/html.svg";
+import cssSVG from "../assets/svg/css.svg";
+import jsSVG from "../assets/svg/javascript.svg";
+import gitSVG from "../assets/svg/git.svg";
+import reactSVG from "../assets/svg/react.svg";
 import { ArrowLeftRounded } from "@mui/icons-material";
 import LinearProgress from "@mui/material/LinearProgress";
 const About = () => {
@@ -22,7 +22,7 @@ const About = () => {
       setCss((prev) => Math.min(Math.random() * 10 + prev, 70));
       setReactJs((prev) => Math.min(Math.random() * 10 + prev, 50));
       setGit((prev) => Math.min(Math.random() * 10 + prev, 60));
-      setTailwind((prev) => Math.min(Math.random() * 100 + prev, 70));
+      setTailwind((prev) => Math.min(Math.random() * 10 + prev, 70));
     }, 200);
     return () => {
       setInterval(timer);
@@ -76,7 +76,7 @@ const About = () => {
         }}
       >
         <Grid item lg={6} md={6} sm={12} xs={12}>
-          <Avatar
+          {/* <Avatar
             variant="rounded"
             src={aboutImg}
             sx={{
@@ -87,7 +87,7 @@ const About = () => {
             }}
           >
             hp
-          </Avatar>
+          </Avatar> */}
         </Grid>
         <Grid item lg={6} md={6} sm={12} xs={12}>
           <Box

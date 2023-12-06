@@ -17,7 +17,7 @@ function MyTabs() {
   };
   const tabs = [
     {
-      label: "home",
+      label: "خانه",
       icon: <HomeIcon />,
       to: "/",
       ...tabProps(0),

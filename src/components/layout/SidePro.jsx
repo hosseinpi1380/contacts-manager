@@ -17,12 +17,11 @@ import { FaInstagramSquare } from "react-icons/fa";
 import { FaTelegram } from "react-icons/fa";
 const SidePro = () => {
     const { toggled, setToggled } = ContextData();
-    return createPortal(
-
+    return (
         <div style={{ display: 'flex', mt: '20px', zIndex: 100, position: 'sticky', height: '100%', direction: 'rtl' }} dir='rtl'>
             <Sidebar rtl onBackdropClick={() => setToggled(false)} toggled={toggled} breakPoint="all" transitionDuration={3000}>
-                <IconButton onClick={()=>setToggled(false)}
-                sx={{position:'absolute',right:0,top:2,fontSize:40}}>
+                <IconButton onClick={() => setToggled(false)}
+                    sx={{ position: 'absolute', right: 0, top: 2, fontSize: 40 }}>
                     <IoMdCloseCircle />
                 </IconButton>
                 <Box
@@ -40,7 +39,7 @@ const SidePro = () => {
                     <MenuItem icon={<NazarIcon />} component={<Link to="/nazarat" />}>نظرات</MenuItem>
                     <MenuItem icon={<ErtebatIcon />} component={<Link to="/ertebat" />}>ارتباط با من</MenuItem>
                 </Menu>
-                <Box sx={{ display: "flex", flexDirection: "column", mt: 3 }}>
+                <Box sx={{ display: "flex", flexDirection: "column", mt: 3,color:'black' }}>
                     <Typography sx={{ mx: 1 }}>
                         ما را در شبکه های اجتماعی دنبال کنید
                     </Typography>
@@ -69,6 +68,7 @@ const SidePro = () => {
                         justifyContent: "center",
                         alignItems: "center",
                         p: 2,
+                        color:'black'
                     }}
                 >
                     <Typography>
@@ -78,12 +78,9 @@ const SidePro = () => {
                     </Typography>
                     <Typography>توسط حسین پیراسبقی</Typography>
                 </Box>
-
             </Sidebar>
-            <main style={{ display: 'flex', padding: 10 }}>
-
-            </main>
         </div>
-        , document.getElementById('side-bar'));
+    )
+
 }
 export default SidePro;
