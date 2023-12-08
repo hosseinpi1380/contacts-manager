@@ -1,7 +1,9 @@
 #app {
   height: 100%;
 }
-
+#root{
+  height: 100%;
+}
 html,
 body {
   position: relative;
@@ -15,6 +17,7 @@ body {
   color: #000;
   margin: 0;
   padding: 0;
+  height: 100%;
 }
 
 .swiper {

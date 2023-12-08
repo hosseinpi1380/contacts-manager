@@ -8,6 +8,8 @@ import gitSVG from "../assets/svg/git.svg";
 import reactSVG from "../assets/svg/react.svg";
 import { ArrowLeftRounded } from "@mui/icons-material";
 import LinearProgress from "@mui/material/LinearProgress";
+import { Helmet, HelmetProvider } from "react-helmet-async";
+
 const About = () => {
   const [js, setJs] = useState(50);
   const [html, setHtml] = useState(0);
@@ -50,7 +52,12 @@ const About = () => {
   ];
 
   return (
-    <Box component="div" className="bg-blue-900 p-2 rounded-md overflow-y-auto">
+    <Box component="div" className="p-2 rounded-md overflow-y-auto">
+      <HelmetProvider>
+        <Helmet>
+          <title>صفحه درباره من</title>
+        </Helmet>
+      </HelmetProvider>
       <Divider
         textAlign="center"
         sx={{
@@ -58,6 +65,7 @@ const About = () => {
             borderColor: "primary.main",
             fontSize: "10px",
           },
+          color: 'black'
         }}
       >
         درباره من
@@ -76,18 +84,7 @@ const About = () => {
         }}
       >
         <Grid item lg={6} md={6} sm={12} xs={12}>
-          {/* <Avatar
-            variant="rounded"
-            src={aboutImg}
-            sx={{
-              width: "250px",
-              height: "250px",
-              textAlign: "center",
-              // m: "auto 0",
-            }}
-          >
-            hp
-          </Avatar> */}
+
         </Grid>
         <Grid item lg={6} md={6} sm={12} xs={12}>
           <Box
@@ -141,12 +138,18 @@ const About = () => {
 
       {skils.map((skill) => (
         <Box component="div" sx={{ my: 2 }} key={skill.id}>
-          <Box component="div" sx={{ display: "flex", flexDirection: "row" }}>
+          <Divider
+            textAlign="left"
+            sx={{
+              "&::before,&::after": {
+                borderColor: 'black',
+                fontSize: "10px",
+              },
+            }}>
             <Chip
-              sx={{ p: 1 }}
               label={
                 <div
-                  style={{ display: "flex", justifyContent: "space-between" }}
+                  style={{ display: "flex", justifyContent: "space-evenly", padding: '5px' }}
                 >
                   <Typography component="h2">{skill.name}</Typography>
                   <Box
@@ -159,16 +162,24 @@ const About = () => {
               }
               color={skill.color}
               variant="filled"
-            ></Chip>
-            <Typography>{Math.round(skill.value)}%</Typography>
-          </Box>
+            />
+          </Divider>
+          <Box component='div' sx={{ display: 'flex', flexDirection: 'column' }}>
+            
+              <LinearProgress
+                variant="determinate"
+                value={skill.value}
+                color={skill.color}
+                sx={{ height: 10, borderRadius: 2, mt: 1 }}
+              />
+            
+            <Chip
+              label={
+                `${Math.round(skill.value)}%`
+              }
+            />
 
-          <LinearProgress
-            variant="determinate"
-            value={skill.value}
-            color={skill.color}
-            sx={{ height: 10, borderRadius: 2, mt: 1 }}
-          />
+          </Box>
         </Box>
       ))}
     </Box>

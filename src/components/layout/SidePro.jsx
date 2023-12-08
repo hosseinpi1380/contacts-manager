@@ -36,7 +36,7 @@ const SidePro = () => {
                 <Menu className='bg-gray-800 text-white' onClick={() => setToggled(false)}>
                     <MenuItem icon={<HomeIcon />} component={<Link to="/" />}> خانه</MenuItem>
                     <MenuItem icon={<AboutIcon />} component={<Link to="/about" />}> درباره من</MenuItem>
-                    <MenuItem icon={<NazarIcon />} component={<Link to="/nazarat" />}>نظرات</MenuItem>
+                    <MenuItem icon={<NazarIcon />} component={<Link to="/resume" />}>رزومه</MenuItem>
                     <MenuItem icon={<ErtebatIcon />} component={<Link to="/ertebat" />}>ارتباط با من</MenuItem>
                 </Menu>
                 <Box sx={{ display: "flex", flexDirection: "column", mt: 3,color:'black' }}>

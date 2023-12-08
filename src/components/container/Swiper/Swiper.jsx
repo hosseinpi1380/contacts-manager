@@ -34,7 +34,6 @@ export default function App() {
       >
         <SwiperSlide>
           slide 9
-          {/* <img src={homepng} alt="" /> */}
           </SwiperSlide>
         <SwiperSlide>Slide 8</SwiperSlide>
         <SwiperSlide>Slide 7</SwiperSlide>

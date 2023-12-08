@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState, useRef } from "react";
 import { Box, Typography } from "@mui/material";
 import TextTransition, { presets } from 'react-text-transition';
 import SwiperComponent from "../components/container/Swiper/Swiper";
+import { Helmet, HelmetProvider } from "react-helmet-async";
 const TEXTS = [
   'حسین پیراسبقی هستم',
   '22 سالمه',
@@ -21,6 +22,11 @@ function App() {
   }, []);
   return (
     <>
+    <HelmetProvider>
+      <Helmet>
+        <title>صفحه اصلی</title>
+      </Helmet>
+    </HelmetProvider>
       <Box
         component="div"
         width="100%"
@@ -30,7 +36,8 @@ function App() {
         }}
         className="bg-gradient-to-br from-blue-500 to-blue-600"
       >
-        <Box component='div' sx={{display:'flex',alignItems:'center'}}>
+        <Box component='div' sx={{display:'flex',alignItems:'center'}}
+         className="bg-gradient-to-r from-blue-700 to-pink-600 rounded-md shadow-md mb-2 px-1">
           <Typography sx={{mr:1}}  variant="h5">
           من 
           </Typography>

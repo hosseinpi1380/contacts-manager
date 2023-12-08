@@ -29,9 +29,9 @@ function MyTabs() {
       ...tabProps(1),
     },
     {
-      label: "نظرات",
+      label: "رزومه",
       icon: <NazarIcon />,
-      to: "/nazarat",
+      to: "/resume",
       ...tabProps(2),
     },
     {
@@ -63,7 +63,7 @@ function MyTabs() {
           component={Link}
           sx={{
             "&.MuiTab-root": {
-              backgroundColor: '#0e7490',
+              backgroundColor: '#1f2937',
               borderRadius: 1,
               m: 0.5,
               color: "white",

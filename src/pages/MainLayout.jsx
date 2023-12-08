@@ -10,9 +10,10 @@ import { prefixer } from "stylis";
 import ParticleCom from "../components/container/Particles.jsx";
 
 
+
 const App = lazy(() => import("./App.jsx"));
 const About = lazy(() => import("./About.jsx"));
-const Nazarat = lazy(() => import("./Nazarat.jsx"));
+const Resume = lazy(() => import("./Resume.jsx"));
 const Ertebat = lazy(() => import("./Ertebat.jsx"));
 const cacheRtl = createCache({
   key: "muirtl",
@@ -37,7 +38,7 @@ const MainLayout = () => {
             <CssBaseline />
             <Header/>
             <ParticleCom />
-            <Grid container sx={{overflowY:'visible'}}>
+            <Grid container sx={{overflowY:'visible',height:'100%'}}>
               <Sidebar />
               <Grid
                 item
@@ -45,12 +46,12 @@ const MainLayout = () => {
                 md={10}
                 sm={9}
                 xs={12}
-                className=" p-1 text-white text-lg mb-1 pb-1 h-full"
+                className=" p-1 text-white text-lg mb-1 pb-1"
               >
                 <Routes>
                   <Route path="/" element={<App />}></Route>
                   <Route path="about" element={<About />}></Route>
-                  <Route path="nazarat" element={<Nazarat />}></Route>
+                  <Route path="resume" element={<Resume />}></Route>
                   <Route path="ertebat" element={<Ertebat />}></Route>
                 </Routes>
               </Grid>
