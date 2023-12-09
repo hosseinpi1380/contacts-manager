@@ -65,7 +65,7 @@ const About = () => {
             borderColor: "primary.main",
             fontSize: "10px",
           },
-          color: 'black'
+          color: 'black',
         }}
       >
         درباره من
@@ -77,10 +77,8 @@ const About = () => {
           p: "20px 0",
           verticalAlign: "center",
           textAlign: "center",
-          display: {
-            xs: { m: "0 auto", textAlign: "center" },
-            sm: { m: "0 auto" },
-          },
+          margin:'20px 0',
+          
         }}
       >
         <Grid item lg={6} md={6} sm={12} xs={12}>

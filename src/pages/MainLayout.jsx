@@ -8,9 +8,9 @@ import { ThemeProvider ,CacheProvider} from "@emotion/react";
 import { createTheme } from "@mui/material/styles";
 import { prefixer } from "stylis";
 import ParticleCom from "../components/container/Particles.jsx";
-
-
-
+import MyProjects from "./MyProjects.jsx";
+import MyCourses from '../pages/MyCourses.jsx'
+import Nazarat from './Nazarat.jsx'
 const App = lazy(() => import("./App.jsx"));
 const About = lazy(() => import("./About.jsx"));
 const Resume = lazy(() => import("./Resume.jsx"));
@@ -53,6 +53,9 @@ const MainLayout = () => {
                   <Route path="about" element={<About />}></Route>
                   <Route path="resume" element={<Resume />}></Route>
                   <Route path="ertebat" element={<Ertebat />}></Route>
+                  <Route path="my-projects" element={<MyProjects />}></Route>
+                  <Route path="nazarat" element={<Nazarat />}></Route>
+                  <Route path="my-courses" element={<MyCourses />}></Route>
                 </Routes>
               </Grid>
             </Grid>

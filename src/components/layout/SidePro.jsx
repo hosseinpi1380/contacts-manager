@@ -3,6 +3,7 @@ import { Sidebar, Menu, MenuItem } from 'react-pro-sidebar';
 import { Link } from 'react-router-dom';
 import { ContextData } from '../../context/useContext';
 import { AboutIcon, ErtebatIcon, HomeIcon, NazarIcon } from '../icons/icons'
+import MyProjects from '../../pages/MyProjects';
 import {
     Box,
     Typography,
@@ -15,6 +16,9 @@ import { FaFacebookSquare } from "react-icons/fa";
 import { FaLinkedin } from "react-icons/fa";
 import { FaInstagramSquare } from "react-icons/fa";
 import { FaTelegram } from "react-icons/fa";
+import { TerminalOutlined } from '@mui/icons-material';
+import EmailIcon from '@mui/icons-material/Email';
+import CastForEducationIcon from '@mui/icons-material/CastForEducation';
 const SidePro = () => {
     const { toggled, setToggled } = ContextData();
     return (
@@ -38,8 +42,11 @@ const SidePro = () => {
                     <MenuItem icon={<AboutIcon />} component={<Link to="/about" />}> درباره من</MenuItem>
                     <MenuItem icon={<NazarIcon />} component={<Link to="/resume" />}>رزومه</MenuItem>
                     <MenuItem icon={<ErtebatIcon />} component={<Link to="/ertebat" />}>ارتباط با من</MenuItem>
+                    <MenuItem icon={<TerminalOutlined />} component={<Link to="/my-projects" />}>نمونه کار های من</MenuItem>
+                    <MenuItem icon={<EmailIcon />} component={<Link to="/nazarat" />}>نظرات</MenuItem>
+                    <MenuItem icon={<CastForEducationIcon />} component={<Link to="/my-courses" />}>دوره های من</MenuItem>
                 </Menu>
-                <Box sx={{ display: "flex", flexDirection: "column", mt: 3,color:'black' }}>
+                <Box sx={{ display: "flex", flexDirection: "column", mt: 3, color: 'black' }}>
                     <Typography sx={{ mx: 1 }}>
                         ما را در شبکه های اجتماعی دنبال کنید
                     </Typography>
@@ -68,7 +75,7 @@ const SidePro = () => {
                         justifyContent: "center",
                         alignItems: "center",
                         p: 2,
-                        color:'black'
+                        color: 'black'
                     }}
                 >
                     <Typography>

@@ -1,7 +1,7 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Grid, Box, Divider, Chip, Typography } from '@mui/material'
 import { Helmet, HelmetProvider } from "react-helmet-async";
-import { Work, SchoolOutlined, Code, CastForEducation } from "@mui/icons-material";
+import { Code } from "@mui/icons-material";
 import HomeRepairServiceIcon from '@mui/icons-material/HomeRepairService';
 import SchoolIcon from '@mui/icons-material/School';
 import Timeline from '@mui/lab/Timeline';
@@ -10,13 +10,19 @@ import TimelineSeparator from '@mui/lab/TimelineSeparator';
 import TimelineConnector from '@mui/lab/TimelineConnector';
 import TimelineContent from '@mui/lab/TimelineContent';
 import TimelineDot from '@mui/lab/TimelineDot';
+import Slide from '@mui/material/Slide';
 const Resume = () => {
   const devEdu = [
     { year: '1398-1399', degree: 'دیپلم', major: 'ریاضی و فیزیک', school: 'شهید مردانی 15' },
     { year: '1399-1403', degree: 'کارشناسی', major: 'مهندسی کامپیوتر', school: 'دانشگاه ازاد اسلامی' },
-    // { year: '1404-1405', degree: 'ارشد', major: 'مهندسی نرم افزار گرایش نرم افزار', school: 'دانشگاه ازاد اسلامی' },
-    // { year: '1406-1409', degree: 'دکتری', major: 'مهندسی نر افزار گرایش هوش مصنوعی', school: 'دانشگاه ازاد اسلامی ' },
   ];
+  const [loading, setLoading] = useState(false);
+  useEffect(() => {
+    setLoading(true)
+    return () => {
+      setLoading(false)
+    }
+  }, [])
   return (
     <>
       <HelmetProvider>
@@ -25,31 +31,40 @@ const Resume = () => {
         </Helmet>
       </HelmetProvider>
       <Box component='div'>
-        <Divider
-          textAlign="center"
-          sx={{
-            "&::before,&::after": {
-              borderColor: "primary.main",
-              fontSize: "10px",
-            },
-          }}
-        >
-          <Chip
-            sx={{ display: 'flex', width: '100%', mb: '10px' }}
-            label={
-              <Typography component="h2">رزومه من</Typography>
-            }
-            icon={<Code />}
-            color="secondary"
-            variant="filled"
+        <Slide in={loading} direction="up"
+          style={{ transitionDelay: loading ? '200ms' : '0ms' }}>
+          <Divider
+            textAlign="left"
+            sx={{
+              "&::before,&::after": {
+                borderColor: "secondary.main",
+                fontSize: "10px",
+              },
+            }}
           >
-          </Chip>
-        </Divider>
+            <Chip
+              sx={{ display: 'flex', width: '100%', mb: '10px', my: '10px' }}
+              label={
+                <Typography component="h2">رزومه من</Typography>
+              }
+              icon={<Code />}
+              color="secondary"
+              variant="filled"
+            >
+            </Chip>
+          </Divider>
+        </Slide>
 
         <Grid container>
           <Grid item
-            xs={12} sm={12} md={6} lg={6} sx={{ mb: '20px'}}>
-            <Divider textAlign="center">
+            xs={12} sm={12} md={6} lg={6} sx={{ mb: '20px' }}>
+            <Divider textAlign="right"
+              sx={{
+                "&::before,&::after": {
+                  borderColor: "error.main",
+                  fontSize: "10px",
+                }
+              }}>
               <Chip
                 sx={{ display: 'flex', width: '100%', }}
                 label={
@@ -61,6 +76,7 @@ const Resume = () => {
               >
               </Chip>
             </Divider>
+
             <Timeline
               sx={{
                 [`& .${timelineItemClasses.root}:before`]: {
@@ -69,37 +85,49 @@ const Resume = () => {
                 },
               }}
             >
-              {devEdu.map(el =>
-                <TimelineItem position="right">
-                  <TimelineSeparator>
-                    <TimelineDot color="primary">
-                      <SchoolIcon />
-                    </TimelineDot>
-                    <TimelineConnector />
-                  </TimelineSeparator>
-                  <TimelineContent sx={{
-                    display: 'flex', flexDirection: 'column'
-                    , alignItems: 'start'
-                  }}>
-                    <Typography component='caption' color='gray'>
-                      {el.year}
-                    </Typography>
-                    <Typography color='black' variant="button">
-                      {el.degree}
-                    </Typography>
-                    <Typography color='black'>
-                      رشته {el.major}
-                    </Typography>
-                    <Typography color='black'>
-                       {el.school}
-                    </Typography>
-                  </TimelineContent>
-                </TimelineItem>
+
+
+              {devEdu.map((el, index) =>
+                <Slide in={loading} direction="up"
+                  style={{ transitionDelay: loading ? `${index + 3}99ms ` : 0 }} key={index}>
+                  <TimelineItem position="right">
+                    <TimelineSeparator>
+                      <TimelineDot color="primary">
+                        <SchoolIcon />
+                      </TimelineDot>
+                      <TimelineConnector />
+                    </TimelineSeparator>
+                    <TimelineContent sx={{
+                      display: 'flex', flexDirection: 'column'
+                      , alignItems: 'start'
+                    }}>
+                      <Typography variant="body1" color='gray'>
+                        {el.year}
+                      </Typography>
+                      <Typography variant="h5" color='black' >
+                        {el.degree}
+                      </Typography>
+                      <Typography variant="subtitle1" color='black'>
+                        رشته {el.major}
+                      </Typography>
+                      <Typography color='black'>
+                        {el.school}
+                      </Typography>
+                    </TimelineContent>
+                  </TimelineItem>
+                </Slide>
               )}
             </Timeline>
           </Grid>
           <Grid item xs={12} sm={12} md={6} lg={6}>
-            <Divider textAlign="center">
+
+            <Divider textAlign="right"
+              sx={{
+                "&::before,&::after": {
+                  borderColor: "warning.main",
+                  fontSize: "10px",
+                }
+              }}>
               <Chip
                 sx={{ display: 'flex', width: '100%', }}
                 label={
@@ -119,32 +147,36 @@ const Resume = () => {
                 },
               }}
             >
-              {devEdu.map(el =>
-                <TimelineItem position="right">
-                  <TimelineSeparator>
-                    <TimelineDot color="warning">
-                      <HomeRepairServiceIcon />
-                    </TimelineDot>
-                    <TimelineConnector />
-                  </TimelineSeparator>
-                  <TimelineContent sx={{
-                    display: 'flex', flexDirection: 'column'
-                    , alignItems: 'start'
-                  }}>
-                    <Typography component='caption' color='gray'>
-                      {el.year}
-                    </Typography>
-                    <Typography color='black' variant="button">
-                      {el.degree}
-                    </Typography>
-                    <Typography color='black'>
-                      رشته {el.major}
-                    </Typography>
-                    <Typography color='black'>
-                       {el.school}
-                    </Typography>
-                  </TimelineContent>
-                </TimelineItem>
+              {devEdu.map((el, index) =>
+                <Slide in={loading} direction="up" style={{ transitionDelay: loading ? `${index + 3}99ms` : '0ms' }}>
+
+                  <TimelineItem position="right">
+                    <TimelineSeparator>
+                      <TimelineDot color="warning">
+                        <SchoolIcon />
+                      </TimelineDot>
+                      <TimelineConnector />
+                    </TimelineSeparator>
+                    <TimelineContent sx={{
+                      display: 'flex', flexDirection: 'column'
+                      , alignItems: 'start'
+                    }}>
+                      <Typography variant="body1" color='gray'>
+                        {el.year}
+                      </Typography>
+                      <Typography variant="h5" color='black' >
+                        {el.degree}
+                      </Typography>
+                      <Typography variant="subtitle1" color='black'>
+                        رشته {el.major}
+                      </Typography>
+                      <Typography color='black'>
+                        {el.school}
+                      </Typography>
+                    </TimelineContent>
+                  </TimelineItem>
+                </Slide>
+
               )}
             </Timeline>
           </Grid>

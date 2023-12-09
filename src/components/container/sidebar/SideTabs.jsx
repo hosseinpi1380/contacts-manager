@@ -2,8 +2,10 @@ import * as React from "react";
 import { Tabs, Tab, Typography } from "@mui/material";
 import { Link } from "react-router-dom";
 import { HomeIcon, AboutIcon, ErtebatIcon, NazarIcon } from "../../icons/icons";
+import CastForEducationIcon from '@mui/icons-material/CastForEducation';
+import EmailIcon from '@mui/icons-material/Email';
 import { grey} from "@mui/material/colors";
-
+import TerminalIcon from '@mui/icons-material/Terminal';
 function MyTabs() {
   const [value, setValue] = React.useState(0);
   const tabProps = (index) => {
@@ -39,6 +41,24 @@ function MyTabs() {
       icon: <ErtebatIcon />,
       to: "/ertebat",
       ...tabProps(3),
+    },
+    {
+      label: "نمونه کار های من",
+      icon: <TerminalIcon />,
+      to: "/my-projects",
+      ...tabProps(4),
+    },
+    {
+      label: "دوره های من",
+      icon: <CastForEducationIcon />,
+      to: "/my-courses",
+      ...tabProps(5),
+    },
+    {
+      label: "نظرات",
+      icon: <EmailIcon />,
+      to: "/nazarat",
+      ...tabProps(6),
     },
   ];
   return (
