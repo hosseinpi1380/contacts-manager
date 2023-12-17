@@ -10,8 +10,9 @@ const Commuication = () => {
         <title>صفحه ارتباط با ما</title>
       </Helmet>
     </HelmetProvider>
-  <Box component='div'>
+  <Box component='div' sx={{color:'black'}}>
     <Typography component='h4'>ارتباط با ما</Typography>
+    
   </Box>
    </>
   )
