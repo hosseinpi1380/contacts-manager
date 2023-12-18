@@ -43,12 +43,6 @@ function MyTabs() {
       ...tabProps(3),
     },
     {
-      label: "نمونه کار های من",
-      icon: <TerminalIcon />,
-      to: "/my-projects",
-      ...tabProps(4),
-    },
-    {
       label: "دوره های من",
       icon: <CastForEducationIcon />,
       to: "/my-courses",

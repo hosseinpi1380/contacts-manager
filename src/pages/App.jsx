@@ -34,7 +34,7 @@ function App() {
         sx={{
           p: 2
         }}
-        className="bg-gradient-to-br from-blue-500 to-blue-600"
+        // className="bg-gradient-to-br from-blue-500 to-blue-600"
       >
         <Box component='div' sx={{display:'flex',alignItems:'center'}}
          className="bg-gradient-to-r from-blue-700 to-pink-600 rounded-md shadow-md mb-2 px-1">

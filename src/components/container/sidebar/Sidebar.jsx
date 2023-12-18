@@ -1,12 +1,13 @@
 import React from "react";
-import { Avatar, Box, Grid, Typography, Hidden, Divider, IconButton } from "@mui/material";
+import { Avatar, Box, Grid, Typography, Hidden, Divider, IconButton, Switch } from "@mui/material";
 // import { GitHubIcon, WhatsAppIcon, TelegramIcon, InstagramIcon } from '@mui/icons-material'
 import GitHubIcon from '@mui/icons-material/GitHub'
 import InstagramIcon from '@mui/icons-material/Instagram';
 import TelegramIcon from '@mui/icons-material/Telegram';
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
-
+import SwitchComponent from '../Switch'
 import TabsC from "./SideTabs";
+
 const Sidebar = () => {
   return (
     <>
@@ -20,17 +21,18 @@ const Sidebar = () => {
           sx={{ width: "100%", color: "white" }}
           className="bg-gray-900"
         >
-          <Box >
+          <SwitchComponent/>
+          <Box>
             <Avatar
               alt="Remy Sharp"
-              src="/bg-1.jpg"
+              src=""
               sx={{ width: 140, height: 140, mx: "auto", mt: "40px" }}
               variant="rounded"
             />
-            <Typography variant="h5" sx={{ textAlign: "center", mt: 1 }}>
+            <Typography variant="h5" sx={{ textAlign: "center", mt: 1}}>
               حسین پیراسبقی
             </Typography>
-            <Typography variant="subtitle2" sx={{ textAlign: "center" }}>
+            <Typography variant="subtitle2" sx={{ textAlign: "center", }}>
               برنامه نویس فرانت اند
             </Typography>
             <Divider light variant="middle" />

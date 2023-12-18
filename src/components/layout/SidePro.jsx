@@ -3,7 +3,6 @@ import { Sidebar, Menu, MenuItem } from 'react-pro-sidebar';
 import { Link } from 'react-router-dom';
 import { ContextData } from '../../context/useContext';
 import { AboutIcon, ErtebatIcon, HomeIcon, NazarIcon } from '../icons/icons'
-import MyProjects from '../../pages/MyProjects';
 import {
     Box,
     Typography,
@@ -42,7 +41,7 @@ const SidePro = () => {
                     <MenuItem icon={<AboutIcon />} component={<Link to="/about" />}> درباره من</MenuItem>
                     <MenuItem icon={<NazarIcon />} component={<Link to="/resume" />}>رزومه</MenuItem>
                     <MenuItem icon={<ErtebatIcon />} component={<Link to="/ertebat" />}>ارتباط با من</MenuItem>
-                    <MenuItem icon={<TerminalOutlined />} component={<Link to="/my-projects" />}>نمونه کار های من</MenuItem>
+                    
                     <MenuItem icon={<EmailIcon />} component={<Link to="/nazarat" />}>نظرات</MenuItem>
                     <MenuItem icon={<CastForEducationIcon />} component={<Link to="/my-courses" />}>دوره های من</MenuItem>
                 </Menu>

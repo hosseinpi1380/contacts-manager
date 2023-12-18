@@ -1,7 +1,26 @@
+@font-face {
+    font-family: 'vazir';
+    src: url('../public/fonts/Vazir.ttf') format('embedded-opentype'),
+        /* Internet Explorer */
+        url('../public/fonts/Vazir.ttf') format('woff2'),
+        /* Super Modern Browsers */
+        url('../public/fonts/Vazir.ttf') format('woff'),
+        /* Pretty Modern Browsers */
+        url('../public/fonts/Vazir.ttf') format('truetype'),
+        /* Safari, Android, iOS */
+        url('../public/fonts/Vazir.ttf') format('svg');
+    ;
+}
+@font-face {
+    font-family: 'lalezar';
+    src: url('../public/fonts/Lalezar-Regular.ttf') format('embedded-opentype'),
+        url('../public/fonts/Lalezar-Regular.ttf') format('woff2'),
+        url('../public/fonts/Lalezar-Regular.ttf') format('woff'),
+        url('../public/fonts/Lalezar-Regular.ttf') format('truetype'),
+        url('../public/fonts/Lalezar-Regular.ttf') format('svg'),
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-@layer base {
-    
-}

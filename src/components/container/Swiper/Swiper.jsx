@@ -1,7 +1,6 @@
-import React, { useRef, useState } from 'react';
+import React from 'react';
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
-import homepng from '../../../assets/png/Home.png'
 // Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/pagination';
@@ -11,39 +10,36 @@ import '../style.css';
 
 // import required modules
 import { Autoplay, Pagination, Navigation, Scrollbar } from 'swiper/modules';
-
-export default function App() {
+export default function SwiperComponent({ controler, info = [{ lastName: 'hossein', course: 'js', opinion: 'good' }] }) {
   return (
     <>
       <Swiper
         spaceBetween={30}
-        
+        style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}
+        keyboard={{enabled:'true'}}
+        grid={{fill:'column'}}
         centeredSlides={true}
+        
         autoplay={{
           delay: 2500,
           disableOnInteraction: false,
-          reverseDirection:true
+          reverseDirection: true
         }}
-        scrollbar={{
-          draggable:true,
-          enabled:true
-        }}
-        navigation={true}
-        modules={[Autoplay, Navigation,Scrollbar]}
+        navigation={controler}
+        modules={[Autoplay, Navigation, Pagination]}
+        pagination={true}
         className="mySwiper"
       >
-        <SwiperSlide>
-          slide 9
-          </SwiperSlide>
-        <SwiperSlide>Slide 8</SwiperSlide>
-        <SwiperSlide>Slide 7</SwiperSlide>
-        <SwiperSlide>Slide 6</SwiperSlide>
-        <SwiperSlide>Slide 5</SwiperSlide>
-        <SwiperSlide>Slide 4</SwiperSlide>
-        <SwiperSlide>Slide 3</SwiperSlide>
-        <SwiperSlide>Slide 2</SwiperSlide>
-        <SwiperSlide>Slide 1</SwiperSlide>
+         <SwiperSlide>1</SwiperSlide>
+         <SwiperSlide>2</SwiperSlide>
+         <SwiperSlide>3</SwiperSlide>
+         <SwiperSlide>4</SwiperSlide>
+         <SwiperSlide>5</SwiperSlide>
+         <SwiperSlide>6</SwiperSlide>
+        
+
       </Swiper>
     </>
   );
 }
+

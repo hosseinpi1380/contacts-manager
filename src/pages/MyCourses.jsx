@@ -77,10 +77,12 @@ const MyCourses = () => {
                                 <CardActionArea>
                                     <CardMedia
                                         component="div"
-                                    sx={{ objectFit: 'scale-down', height: '200px',background:`linear-gradient:(to right , ${course.from} , ${course.to})` }}
-                                    // className={`bg-gradient-to-r from-cyan-500 to-blue-500`}
-                                    
-                                    />
+                                        sx={{
+                                            objectFit: 'scale-down', height: '200px',
+                                            background: `linear-gradient(to right , ${course.from} , ${course.to})`, textAlign: 'center', 
+                                            display: 'flex', alignItems: 'center', justifyContent: 'center'
+                                        }}
+                                    >{course.name}</CardMedia>
                                     <CardContent>
                                         <Typography gutterBottom variant="h5" component="div">
                                             {course.name}

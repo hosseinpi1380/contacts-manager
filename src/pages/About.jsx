@@ -62,10 +62,10 @@ const About = () => {
         textAlign="center"
         sx={{
           "&::before,&::after": {
-            borderColor: "primary.main",
+            borderColor: "primary.white",
             fontSize: "10px",
           },
-          color: 'black',
+          color: 'theme.palette.primary.main',
         }}
       >
         درباره من
@@ -117,7 +117,7 @@ const About = () => {
         textAlign="center"
         sx={{
           "&::before,&::after": {
-            borderColor: "primary.main",
+            borderColor: "theme.palette.primary.white",
             fontSize: "10px",
           },
         }}
@@ -140,7 +140,7 @@ const About = () => {
             textAlign="left"
             sx={{
               "&::before,&::after": {
-                borderColor: 'black',
+                borderColor: 'theme.palette.primary.white',
                 fontSize: "10px",
               },
             }}>

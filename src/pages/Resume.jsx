@@ -101,16 +101,16 @@ const Resume = () => {
                       display: 'flex', flexDirection: 'column'
                       , alignItems: 'start'
                     }}>
-                      <Typography variant="body1" color='gray'>
+                      <Typography variant="body1" sx={{ color: 'theme.palette.primary.secondary' }}>
                         {el.year}
                       </Typography>
-                      <Typography variant="h5" color='black' >
+                      <Typography variant="h5" sx={{ color: 'theme.palette.primary.secondary' }}>
                         {el.degree}
                       </Typography>
-                      <Typography variant="subtitle1" color='black'>
+                      <Typography variant="subtitle1" sx={{ color: 'theme.palette.primary.secondary' }}>
                         رشته {el.major}
                       </Typography>
-                      <Typography color='black'>
+                      <Typography sx={{ color: 'theme.palette.primary.secondary' }}>
                         {el.school}
                       </Typography>
                     </TimelineContent>
@@ -159,18 +159,18 @@ const Resume = () => {
                     </TimelineSeparator>
                     <TimelineContent sx={{
                       display: 'flex', flexDirection: 'column'
-                      , alignItems: 'start'
+                      , alignItems: 'start', color: 'theme.palette.primary.secondary'
                     }}>
-                      <Typography variant="body1" color='gray'>
+                      <Typography variant="body1" >
                         {el.year}
                       </Typography>
-                      <Typography variant="h5" color='black' >
+                      <Typography variant="h5" >
                         {el.degree}
                       </Typography>
-                      <Typography variant="subtitle1" color='black'>
+                      <Typography variant="subtitle1" >
                         رشته {el.major}
                       </Typography>
-                      <Typography color='black'>
+                      <Typography >
                         {el.school}
                       </Typography>
                     </TimelineContent>
