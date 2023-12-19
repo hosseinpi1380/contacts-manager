@@ -88,8 +88,8 @@ const Resume = () => {
 
 
               {devEdu.map((el, index) =>
-                <Slide in={loading} direction="up"
-                  style={{ transitionDelay: loading ? `${index + 3}99ms ` : 0 }} key={index}>
+                <Slide in={loading} direction="up" key={el.year}
+                  style={{ transitionDelay: loading ? `${index + 3}99ms ` : 0 }}>
                   <TimelineItem position="right">
                     <TimelineSeparator>
                       <TimelineDot color="primary">
@@ -134,7 +134,7 @@ const Resume = () => {
                   <Typography component="h2">تجربیات</Typography>
                 }
                 icon={<HomeRepairServiceIcon />}
-                color="warning"
+                color="error"
                 variant="filled"
               >
               </Chip>
@@ -148,29 +148,29 @@ const Resume = () => {
               }}
             >
               {devEdu.map((el, index) =>
-                <Slide in={loading} direction="up" style={{ transitionDelay: loading ? `${index + 3}99ms` : '0ms' }}>
+                <Slide key={el.school} in={loading} direction="up" style={{ transitionDelay: loading ? `${index + 3}99ms` : '0ms' }}>
 
                   <TimelineItem position="right">
                     <TimelineSeparator>
-                      <TimelineDot color="warning">
+                      <TimelineDot color="primary">
                         <SchoolIcon />
                       </TimelineDot>
                       <TimelineConnector />
                     </TimelineSeparator>
-                    <TimelineContent sx={{
-                      display: 'flex', flexDirection: 'column'
-                      , alignItems: 'start', color: 'theme.palette.primary.secondary'
-                    }}>
-                      <Typography variant="body1" >
+                    <TimelineContent sx={{display: 'flex', flexDirection: 'column', alignItems: 'start',}}>
+                      
+                      
+                    
+                      <Typography variant="body1" sx={{color: 'theme.palette.primary.main'}} >
                         {el.year}
                       </Typography>
-                      <Typography variant="h5" >
+                      <Typography variant="h5" sx={{color:'theme.palette.primary.secondary'}}>
                         {el.degree}
                       </Typography>
-                      <Typography variant="subtitle1" >
+                      <Typography variant="subtitle1" sx={{color:'theme.palette.primary.main'}}>
                         رشته {el.major}
                       </Typography>
-                      <Typography >
+                      <Typography sx={{color:'theme.palette.primary.secondary'}}>
                         {el.school}
                       </Typography>
                     </TimelineContent>

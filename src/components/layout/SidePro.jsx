@@ -2,6 +2,7 @@ import { createPortal } from 'react-dom';
 import { Sidebar, Menu, MenuItem } from 'react-pro-sidebar';
 import { Link } from 'react-router-dom';
 import { ContextData } from '../../context/useContext';
+import bg from '/img/bg-2.jpg'
 import { AboutIcon, ErtebatIcon, HomeIcon, NazarIcon } from '../icons/icons'
 import {
     Box,
@@ -15,9 +16,9 @@ import { FaFacebookSquare } from "react-icons/fa";
 import { FaLinkedin } from "react-icons/fa";
 import { FaInstagramSquare } from "react-icons/fa";
 import { FaTelegram } from "react-icons/fa";
-import { TerminalOutlined } from '@mui/icons-material';
 import EmailIcon from '@mui/icons-material/Email';
 import CastForEducationIcon from '@mui/icons-material/CastForEducation';
+import SwitchComponent from '../container/Switch';
 const SidePro = () => {
     const { toggled, setToggled } = ContextData();
     return (
@@ -27,15 +28,13 @@ const SidePro = () => {
                     sx={{ position: 'absolute', right: 0, top: 2, fontSize: 40 }}>
                     <IoMdCloseCircle />
                 </IconButton>
+                <SwitchComponent />
                 <Box
                     component="img"
-                    src="pattern-sample.avif"
+                    src={bg}
                     width="242px"
                     className="bg-cover m-1 shadow-md"
-                ></Box>
-                <Box sx={{ width: "100%", maxWidth: 360, bgcolor: "background.paper" }}>
-                </Box>
-
+                />
                 <Menu className='bg-gray-800 text-white' onClick={() => setToggled(false)}>
                     <MenuItem icon={<HomeIcon />} component={<Link to="/" />}> خانه</MenuItem>
                     <MenuItem icon={<AboutIcon />} component={<Link to="/about" />}> درباره من</MenuItem>

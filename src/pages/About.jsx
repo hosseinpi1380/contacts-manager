@@ -32,13 +32,13 @@ const About = () => {
   }, []);
   const skils = [
     { id: 0, name: "html", value: html, color: "error", icon: htmlSVG },
-    { id: 1, name: "css", value: css, color: "primary", icon: cssSVG },
+    { id: 1, name: "css", value: css, color: "info", icon: cssSVG },
     { id: 2, name: "js", value: js, color: "warning", icon: jsSVG },
     {
       id: 3,
       name: "reactJs",
       value: reactJs,
-      color: "primary",
+      color: "info",
       icon: reactSVG,
     },
     { id: 4, name: "git", value: git, color: "error", icon: gitSVG },
@@ -46,7 +46,7 @@ const About = () => {
       id: 5,
       name: "tailwind css",
       value: tailwind,
-      color: "primary",
+      color: "info",
       icon: null,
     },
   ];
@@ -65,10 +65,19 @@ const About = () => {
             borderColor: "primary.white",
             fontSize: "10px",
           },
-          color: 'theme.palette.primary.main',
+          
         }}
       >
-        درباره من
+      <Chip
+          sx={{ margin: "0 auto", width: "100%" }}
+          label={
+            <>
+              <Typography component="h2">درباره من</Typography>
+            </>
+          }
+          color="error"
+          variant="filled"
+        ></Chip>
       </Divider>
 
       <Grid
@@ -117,7 +126,7 @@ const About = () => {
         textAlign="center"
         sx={{
           "&::before,&::after": {
-            borderColor: "theme.palette.primary.white",
+            borderColor: "theme.palette.primary.main",
             fontSize: "10px",
           },
         }}
@@ -129,7 +138,7 @@ const About = () => {
               <Typography component="h2">مهارت های من</Typography>
             </>
           }
-          color="primary"
+          color="error"
           variant="filled"
         ></Chip>
       </Divider>
@@ -140,7 +149,7 @@ const About = () => {
             textAlign="left"
             sx={{
               "&::before,&::after": {
-                borderColor: 'theme.palette.primary.white',
+                borderColor: 'theme.palette.primary.main',
                 fontSize: "10px",
               },
             }}>

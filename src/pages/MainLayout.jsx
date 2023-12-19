@@ -1,4 +1,4 @@
-import React, { Suspense, lazy, useCallback } from "react";
+import React, { Suspense, lazy, useCallback, useEffect } from "react";
 import { Header, Sidebar } from "./index.jsx";
 import { Routes, Route, BrowserRouter } from "react-router-dom";
 import { Grid, CssBaseline } from "@mui/material";
@@ -11,7 +11,7 @@ import ParticleCom from "../components/container/Particles.jsx";
 import MyCourses from '../pages/MyCourses.jsx'
 import Nazarat from './Nazarat.jsx'
 import { ContextData } from "../context/useContext.jsx";
-import Vazir from '../../public/fonts/Vazir.woff'
+import Vazir from '/fonts/Vazir.woff'
 const App = lazy(() => import("./App.jsx"));
 const About = lazy(() => import("./About.jsx"));
 const Resume = lazy(() => import("./Resume.jsx"));
@@ -22,15 +22,14 @@ const cacheRtl = createCache({
 });
 const darkTheme = createTheme({
   direction: "rtl",
-  typography:{
-    fontFamily:Vazir
+  typography: {
+    fontFamily: Vazir
   },
   palette: {
     mode: 'dark',
     primary: {
-      main: '#8be9fd',
-      black: '#000',
-      white: '#ffffff'
+      main: '#fff',
+      secondary: '#000',
     },
     secondary: {
       main: '#bd93f9'
@@ -39,13 +38,14 @@ const darkTheme = createTheme({
 });
 const lightTheme = createTheme({
   direction: "rtl",
-  typography:{
-    fontFamily:'vazir'
+  typography: {
+    fontFamily: Vazir
   },
   palette: {
     mode: 'light',
     primary: {
-      main: '#8be9fd',
+      main: '#000',
+      secondary:'#fff',
     },
     secondary: {
       main: '#bd93f9'
@@ -53,7 +53,10 @@ const lightTheme = createTheme({
   },
 });
 const MainLayout = () => {
-  const { theme } = ContextData();
+  const { mode } = ContextData();
+  useEffect(() => {
+    console.log(mode)
+  }, [mode])
   const particlesInit = useCallback(async (engine) => {
     console.log(engine);
   }, []);
@@ -64,7 +67,7 @@ const MainLayout = () => {
   return (
     <BrowserRouter>
       <CacheProvider value={cacheRtl}>
-        <ThemeProvider theme={theme == 'dark' ? darkTheme : lightTheme}>
+        <ThemeProvider theme={mode === 'dark' ? darkTheme : lightTheme}>
           <Suspense fallback="در حال لود سایت...">
             <CssBaseline />
             <Header />
@@ -77,7 +80,7 @@ const MainLayout = () => {
                 md={10}
                 sm={9}
                 xs={12}
-                className="p-1 text-white text-lg mb-1 pb-1"
+                className="p-1 text-lg mb-1 pb-1"
               >
                 <Routes>
                   <Route path="/" element={<App />}></Route>

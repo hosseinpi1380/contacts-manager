@@ -22,11 +22,11 @@ function App() {
   }, []);
   return (
     <>
-    <HelmetProvider>
-      <Helmet>
-        <title>صفحه اصلی</title>
-      </Helmet>
-    </HelmetProvider>
+      <HelmetProvider>
+        <Helmet>
+          <title>صفحه اصلی</title>
+        </Helmet>
+      </HelmetProvider>
       <Box
         component="div"
         width="100%"
@@ -34,17 +34,16 @@ function App() {
         sx={{
           p: 2
         }}
-        // className="bg-gradient-to-br from-blue-500 to-blue-600"
       >
-        <Box component='div' sx={{display:'flex',alignItems:'center'}}
-         className="bg-gradient-to-r from-blue-700 to-pink-600 rounded-md shadow-md mb-2 px-1">
-          <Typography sx={{mr:1}}  variant="h5">
-          من 
+        <Box component='div' sx={{ display: 'flex', alignItems: 'center' }}
+          className="bg-gradient-to-r from-blue-700 to-pink-600 rounded-md text-white shadow-md mb-2 px-1">
+          <Typography sx={{ mr: 1 }} variant="h5">
+            من
           </Typography>
-        <TextTransition springConfig={presets.wobbly}>
-          {TEXTS[index % TEXTS.length]}</TextTransition>
+          <TextTransition springConfig={presets.wobbly}>
+            {TEXTS[index % TEXTS.length]}</TextTransition>
         </Box>
-<SwiperComponent/>
+        <SwiperComponent />
 
       </Box>
     </>

@@ -15,7 +15,7 @@ const Nazarat = () => {
         <Box component='div' sx={{ color: 'black' }}>
             
             <Divider textAlign='center' sx={{ mt: '10px' }}>
-                <Chip color='primary' size='medium' label="نظرات دانشجویان"  variant="filled" sx={{ fontSize: '20px' }} />
+                <Chip color='error' size='medium' label="نظرات دانشجویان"  variant="filled" sx={{ fontSize: '20px' }} />
 
             </Divider>
             <Box component='div' className='shadow-md mt-3 '>

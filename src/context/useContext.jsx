@@ -7,7 +7,7 @@ export const ContextData = () => {
 export const ThemeProvider = ({ children }) => {
   const [openDrawer, setOpenDrawer] = useState(false);
   const [value, setValue] = useState(false);
-  const [theme, setTheme] = useState('dark')
+  const [mode, setMode] = useState('light')
   const [toggled, setToggled] = React.useState(false);
   const toggleDrawer = (open) => (event) => {
     if (
@@ -18,14 +18,14 @@ export const ThemeProvider = ({ children }) => {
     }
     setOpenDrawer(true);
   };
-  const changeTheme = () => {
-    setTheme(prev => !prev)
+  const changeMode = () => {
+    setMode(prev => prev === 'light' ? 'dark' : 'light')
   }
 
   return (
     <ThemeContext.Provider value={{
       openDrawer, setOpenDrawer,
-      toggleDrawer, value, setValue, setToggled, toggled,theme,changeTheme
+      toggleDrawer, value, setValue, setToggled, toggled, mode, changeMode
     }}>
       {children}
     </ThemeContext.Provider>

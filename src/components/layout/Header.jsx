@@ -26,7 +26,7 @@ export default function Header() {
               <Typography variant="h6"  component="div" sx={{fontSize:'16px', flexGrow: 1, textAlign: 'center' }}>
                 به وبسایت من خوش امدید💕
               </Typography>
-              <ButtonGroup variant="contained" aria-label="contained button group">
+              <ButtonGroup color="info" variant="contained" aria-label="contained button group">
                 <Button>ورود</Button>
                 <Button>ثبت نام</Button>
               </ButtonGroup>
