@@ -96,7 +96,7 @@ const About = () => {
         <Grid item lg={6} md={6} sm={12} xs={12}>
           <Box
             component="div"
-            className="bg-[#396ee5] rounded-md text-white font-mono text-lg"
+            className="bg-[#396ee5] rounded-md text-white text-lg"
             sx={{
               display: "flex",
               flexDirection: "column",

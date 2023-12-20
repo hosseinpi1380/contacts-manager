@@ -1,9 +1,5 @@
 export const sample = {
-    // background: {
-    //     color: {
-    //         value: "#0d47a1",
-    //     },
-    // },
+   
     fpsLimit: 120,
     interactivity: {
         events: {
@@ -90,7 +86,7 @@ export const hezagon={
       line_linked: {
         color: "#000",
         distance: 150,
-        enable: false,
+        enable: true,
         opacity: 0.4,
         width: 0.5
       },

@@ -27,6 +27,10 @@ const darkTheme = createTheme({
   },
   palette: {
     mode: 'dark',
+    background:{
+      paper:'#616161',
+      default:'#1e1b4b'
+    },
     primary: {
       main: '#fff',
       secondary: '#000',
@@ -45,7 +49,7 @@ const lightTheme = createTheme({
     mode: 'light',
     primary: {
       main: '#000',
-      secondary:'#fff',
+      secondary: '#fff',
     },
     secondary: {
       main: '#bd93f9'
@@ -54,9 +58,6 @@ const lightTheme = createTheme({
 });
 const MainLayout = () => {
   const { mode } = ContextData();
-  useEffect(() => {
-    console.log(mode)
-  }, [mode])
   const particlesInit = useCallback(async (engine) => {
     console.log(engine);
   }, []);
@@ -72,7 +73,7 @@ const MainLayout = () => {
             <CssBaseline />
             <Header />
             <ParticleCom />
-            <Grid container sx={{ overflowY: 'visible', height: '100%' }}>
+            <Grid container sx={{ overflowY: 'visible', height: '100%', position: 'relative', zIndex: 100 }}>
               <Sidebar />
               <Grid
                 item
@@ -80,14 +81,13 @@ const MainLayout = () => {
                 md={10}
                 sm={9}
                 xs={12}
-                className="p-1 text-lg mb-1 pb-1"
+                className="p-1 mb-1 pb-1"
               >
                 <Routes>
                   <Route path="/" element={<App />}></Route>
                   <Route path="about" element={<About />}></Route>
                   <Route path="resume" element={<Resume />}></Route>
                   <Route path="ertebat" element={<Ertebat />}></Route>
-
                   <Route path="nazarat" element={<Nazarat />}></Route>
                   <Route path="my-courses" element={<MyCourses />}></Route>
                 </Routes>

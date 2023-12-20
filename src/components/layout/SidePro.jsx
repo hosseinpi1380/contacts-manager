@@ -19,13 +19,17 @@ import { FaTelegram } from "react-icons/fa";
 import EmailIcon from '@mui/icons-material/Email';
 import CastForEducationIcon from '@mui/icons-material/CastForEducation';
 import SwitchComponent from '../container/Switch';
+import { useTheme } from '@emotion/react';
+import { useEffect } from 'react';
 const SidePro = () => {
     const { toggled, setToggled } = ContextData();
+    const theme = useTheme();
     return (
-        <div style={{ display: 'flex', mt: '20px', zIndex: 100, position: 'sticky', height: '100%', direction: 'rtl' }} dir='rtl'>
-            <Sidebar rtl onBackdropClick={() => setToggled(false)} toggled={toggled} breakPoint="all" transitionDuration={3000}>
+        <div style={{ display: 'flex', opacity: 1, mt: '20px', zIndex: 100, position: 'sticky', height: '100%', direction: 'rtl' }} dir='rtl'>
+            <Sidebar rtl onBackdropClick={() => setToggled(false)} toggled={toggled} breakPoint="all" transitionDuration={3000}
+            >
                 <IconButton onClick={() => setToggled(false)}
-                    sx={{ position: 'absolute', right: 0, top: 2, fontSize: 40 }}>
+                    sx={{ position: 'absolute', right: 0, top: 2, fontSize: 40, color: 'text.primary.main' }}>
                     <IoMdCloseCircle />
                 </IconButton>
                 <SwitchComponent />
@@ -40,7 +44,7 @@ const SidePro = () => {
                     <MenuItem icon={<AboutIcon />} component={<Link to="/about" />}> درباره من</MenuItem>
                     <MenuItem icon={<NazarIcon />} component={<Link to="/resume" />}>رزومه</MenuItem>
                     <MenuItem icon={<ErtebatIcon />} component={<Link to="/ertebat" />}>ارتباط با من</MenuItem>
-                    
+
                     <MenuItem icon={<EmailIcon />} component={<Link to="/nazarat" />}>نظرات</MenuItem>
                     <MenuItem icon={<CastForEducationIcon />} component={<Link to="/my-courses" />}>دوره های من</MenuItem>
                 </Menu>

@@ -43,7 +43,7 @@ const Resume = () => {
             }}
           >
             <Chip
-              sx={{ display: 'flex', width: '100%', mb: '10px', my: '10px' }}
+              sx={{ display: 'flex', width: '100%', mb: '10px', my: '10px',color:'text.primary' }}
               label={
                 <Typography component="h2">رزومه من</Typography>
               }
