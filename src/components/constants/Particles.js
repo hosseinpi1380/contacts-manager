@@ -140,10 +140,6 @@ export const hezagon={
     retina_detect: true
   };
 export const fake={
-
-
-
-
       particles: {
         color: {
           value: "#FF0000",
