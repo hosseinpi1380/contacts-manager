@@ -12,7 +12,7 @@ import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 import 'swiper/css/scrollbar';
 import '../components/container/style.css';
-import { deepOrange, green } from '@mui/material/colors';
+import photo from '/img/bg-2.jpg'
 // import required modules
 import { Autoplay, Scrollbar } from 'swiper/modules';
 import { Box, Divider, Rating, Avatar } from '@mui/material'
@@ -66,9 +66,10 @@ const Nazarat = () => {
                                     <CardActionArea>
                                         <CardMedia
                                             component="img"
-                                            src="../public/img/bg-2.jpg"
-                                            height={300}
+                                            src={photo}
+                                            // height={100}
                                             alt="green iguana"
+                                            sx={{height:'200px',objectFit:'cover'}}
                                         />
 
                                     </CardActionArea>
