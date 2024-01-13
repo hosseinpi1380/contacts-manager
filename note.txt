@@ -1,0 +1,22 @@
+1.formik
+2.react-confirm-alert
+3.react-hook-form
+4.yup
+5.lodash
+6.axios
+7.react-router-dom
+8.immer /useImmer
+9.react-toastify
+10.react-hot-toast
+11.react-hook-form
+12.concurrently
+13.react-portal
+14.react-icons
+15.react-helmet-async
+16.react-ErrorBoundary
+17.tsParticles
+18.typed.js
+19.react-text-transition
+20.react-slicks
+21.react-redux
+22.redux-toolkit
