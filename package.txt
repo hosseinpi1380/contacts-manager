@@ -22,6 +22,6 @@
 22.redux-toolkit
 23.react-number-format
 24.date-fns-jalali
-25.react-pagination
+25.react-paginate
 26.framer-motion
 27.react-spinner
