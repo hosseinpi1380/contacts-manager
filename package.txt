@@ -25,3 +25,5 @@
 25.react-paginate
 26.framer-motion
 27.react-spinner
+28.millionJs //for optimizing reactJs project
+29.React Lazy Load Image Component
